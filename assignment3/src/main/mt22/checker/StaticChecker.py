@@ -24,12 +24,20 @@ class Symbol:
 def infer(id,typ,env):
     for x in env:
         if x.get(id) is not None:
-            x[id] = typ
+            if (isinstance(x[id],list)):
+                if (x[id][1] is not None):
+                    func_name = x[id][1]
+                    func = env[1].get(func_name)
+                    for i in range(0,len(func["param"])):
+                        if (func["param"][i].name == id):
+                            func["param"][i].typ = typ
+                            break
+                x[id][1] = typ
             return
 
 class GetEnv(Visitor):
 
-    def visitProgram(self, ast, o):
+    def visitProgram(self, ast:Program, o):
         o = [{}]
         for x in ast.decls:
             if (isinstance(x,FuncDecl)):
@@ -41,46 +49,16 @@ class GetEnv(Visitor):
     #         raise Redeclared(Variable(),ast.name)
     #     o[0][ast.name] = self.visit(ast.typ,o)
 
-    def visitFuncDecl(self, ast, o):
+    def visitFuncDecl(self, ast: FuncDecl, o):
         if (o[0].get(ast.name) is not None):
             return
-        paramlst = []
-        inheritlst = []
-        env = [{}] + o
         typ = ast.return_type
-        for x in ast.params:
-            param = self.visit(x,env)
-            paramlst += param
-            if (x.inherit == True):
-                inheritlst += param
         o[0][ast.name] = {
             "name": ast.name,
             "typ" : typ,
             "parent": ast.inherit,
-            "param": paramlst,
-            "inherit": inheritlst,
+            "param": ast.params
         }
-        
-    def visitParamDecl(self, ast, o):
-        if (o[0].get(ast.name)):
-            raise Redeclared(Parameter(),ast.name) 
-        typ = self.visit(ast.typ)
-        return [ast.name,typ]
-
-    def visitIntegerType(self, ast, o):
-        return IntegerType()
-    
-    def visitFloatType(self, ast, o):
-        return FloatType()
-    
-    def visitStringType(self, ast, o):
-        return StringType()
-
-    def visitAutoType(self, ast, o):
-        return AutoType()
-    
-    def visitVoidType(self, ast, o):
-        return VoidType()  
 
 
 class StaticChecker(Visitor):
@@ -104,46 +82,17 @@ class StaticChecker(Visitor):
     def check_type(self,typ1,typ2):
         if (isinstance(typ1,FloatType) and isinstance(typ2,IntegerType)):
             return True
+        if (isinstance(typ1,ArrayType) and (isinstance(typ2,ArrayType))):
+            if (typ1.dimensions==typ2.dimensions):
+                return self.check_type(typ1.typ,typ2.typ)
+            else:
+                return False
         if (isinstance(typ1,type(typ2))):
             return True
         return False
-
     
     def check(self):
         return self.visit(self.ast, {})
-
-    # def check_first_stmt(self,current_func,o):
-    #     if (current_func["inherit"] is not None):
-    #         if (isinstance(current_func["first_stmt"],CallStmt)):
-    #             if (current_func["first_stmt"].name == "super"):
-    #                 if ((o[1].get(current_func["parent"]) is not None) and isinstance(o[1][current_func["parent"]],dict)):
-    #                     parent_func = o[1][current_func["parent"]]
-    #                     if (len(current_func["first_stmt"].args) == len(parent_func["inherit"])):
-    #                         for i in range(len(parent_func["inherit"])):
-    #                             typ1 = self.visit(current_func["first_stmt"][i],o)
-    #                             typ2 = parent_func["inherit"][i][1]
-    #                             if (isinstance(typ1,AutoType)):
-    #                                 raise TypeMismatchInExpression(current_func["first_stmt"][i])
-    #                             if (not isinstance(typ1,typ2)):
-    #                                 raise TypeMismatchInExpression()
-    #                         for i in range(len(parent_func["inherit"])):
-    #                             if (o[0].get(parent_func["inherit"][i][0]) is not None):
-    #                                 raise Redeclared(Parameter(),parent_func["inherit"][i][0])
-    #                             o[0][parent_func["inherit"][i][0]] = parent_func["inherit"][i][1]
-    #                     else:
-    #                         TypeMismatchInExpression(current_func["first_stmt"])
-    #                     self.check_first_stmt(parent_func,o)
-    #                 else:
-    #                     pass
-    #             elif (current_func["first_stmt"].name == "preventDefault"):
-    #                 return
-    #             else:
-    #                 raise InvalidStatementInFunction(current_func["name"])
-    #         else:
-    #             raise InvalidStatementInFunction(current_func["name"])
-    #     else:
-    #         raise InvalidStatementInFunction(current_func["name"])
-
 
     def visitProgram(self, ast:Program, o):
         
@@ -151,11 +100,10 @@ class StaticChecker(Visitor):
         for x in ast.decls:
             if (isinstance(x,FuncDecl) and (isinstance(x.return_type,VoidType)) and (len(x.params)==0)):
                 find_main_func = True
-        # o = GetEnv().visit(ast,o)
-        o = [{}]
+        o = GetEnv().visit(ast,o)
+        o = [{}] + o
         for x in ast.decls:
             self.visit(x,o)
-        
         if (find_main_func == False):
             raise NoEntryPoint()
         return []
@@ -164,62 +112,136 @@ class StaticChecker(Visitor):
         if (o[0].get(ast.name) is not None):
             raise Redeclared(Variable(),ast.name)
         o[0][ast.name] = self.visit(ast.typ,o)
+        typ = o[0][ast.name][0]
         if (ast.init is not None):
-            init_typ = self.visit(ast.init,(o[0][ast.name],o))
-            if (isinstance(o[0][ast.name],AutoType)):
-                o[0][ast.name] = init_typ
+            init = self.visit(ast.init,o)
+            init_typ = init[0]
+            if (isinstance(typ,AutoType)):
+                o[0][ast.name][0] = init_typ
                 return
-            if (self.check_type(o[0][ast.name],init_typ) == False):
-                raise TypeMismatchInExpression(ast.init)
             if (isinstance(init_typ,AutoType)):
-                infer(ast.init.name,)
+                init_typ = typ
+                infer(ast.init.name,typ,o)
+            if (self.check_type(typ,init_typ) == False):
+                raise TypeMismatchInVarDecl(ast)            
         else:
-            if (isinstance(o[0][ast.name],AutoType)):
+            if (isinstance(o[0][ast.name][0],AutoType)):
                 raise Invalid(Variable(), ast.name)    
 
+    def visitParamDecl(self, ast:ParamDecl, o):
+        (env,func_name) = o
+        if (env[0].get(ast.name) is not None):
+            raise Redeclared(ParamDecl(),ast.name)
+        env[0][ast.name] = [ast.typ,func_name]
+
     def visitFuncDecl(self, ast: FuncDecl, o):
-        env = [{}] + o
-        for x in o[0][ast.name]["param"]:
-            env[0][x[0]] = x[1]
+        prototype = o[1].get(ast.name)
+        if (o[0].get(ast.name)):
+            raise Redeclared(Function(),ast.name)
         
+        env = [{}] + o
+        for x in prototype["param"]:
+            self.visit(x,(env,ast.name))
+
+        o[0][ast.name] = prototype
+        
+        # env = [{}] + o
+
+        # for x in o[0][ast.name]["param"]:
+        #     env[0][x[0]] = x[1]
         if (o[0][ast.name]["parent"] is not None):
-            self.check_first_stmt(o[0][ast.name],env)
+            if (ast.body.body is None):
+                raise InvalidStatementInFunction(ast)
+            if (isinstance((ast.body.body[0]),CallStmt)):
+                stmt = ast.body.body[0]
+                if ((stmt.name == "super") or (ast.name == "preventDefault")):
+                    if (stmt.name == "super"):
+                        parent = self.visit(Id(ast.inherit),env)
+                        if (isinstance(parent,dict)):
+                            if (len(parent["param"]) == len(stmt.args)):
+                                for i in range(0,len(parent["param"])):
+                                    param1 = parent["param"][i]
+                                    param2 = self.visit(stmt.args[i],env)
+                                    typ1 = param1.typ
+                                    typ2 = param2[0]
+                                    if (isinstance(typ1,AutoType)):
+                                        parent["param"][i].typ = typ2
+                                        typ1 = typ2
+                                    if (isinstance(typ2,AutoType)):
+                                        infer(stmt.args[i].name,typ1,env)
+                                        typ2 = typ1
+                                    if (self.check_type(typ1,typ2) == False):
+                                        print(typ1,typ2)
+                                        raise TypeMismatchInExpression(stmt)
+                                for x in parent["param"]:
+                                    if (x.inherit == True):
+                                        if (env[0].get(x.name) is not None):
+                                            raise Invalid(ParamDecl(),x.name)
+                                        env[0][x.name] = x.typ
+                            else:
+                                raise TypeMismatchInExpression(stmt)
+                        else:
+                            raise Undeclared(Function(),ast.inherit)
+                else:
+                    InvalidStatementInFunction(ast.name)
+            else:
+                raise InvalidStatementInFunction(ast.name)    
             for x in ast.body.body[1:]:
                 if (isinstance(x,VarDecl)):
                     self.visit(x,env)
-                else: 
+                else:
                     self.visit(x,(False,o[0][ast.name]["typ"],env))
         else:
             for x in ast.body.body:
                 if (isinstance(x,VarDecl)):
                     self.visit(x,env)
-                else: 
+                else:
                     self.visit(x,(False,o[0][ast.name]["typ"],env))
+        #     for x in ast.body.body[1:]:
+        #         if (isinstance(x,VarDecl)):
+        #             self.visit(x,env)
+        #         else: 
+        #             self.visit(x,(False,o[0][ast.name]["typ"],env))
+        # else:
+        #     for x in ast.body.body:
+        #         if (isinstance(x,VarDecl)):
+        #             self.visit(x,env)
+        #         else: 
+        #             self.visit(x,(False,o[0][ast.name]["typ"],env))
         
     def visitAssignStmt(self, ast: AssignStmt, o): 
         (in_loop,typ,env) = o
-        lhs = self.visit(ast.lhs,(in_loop,typ,env))
-        rhs = self.visit(ast.rhs,(in_loop,typ,(lhs,env)))
+        lhs = self.visit(ast.lhs,env)
+        rhs = self.visit(ast.rhs,env)
 
-        if (isinstance(rhs,AutoType)):
-            infer(ast.rhs.name,lhs,env)
+        lhs_typ = lhs[0]
+        rhs_typ = rhs[0]
 
-        elif (isinstance(lhs,FloatType)):
-            if (not isinstance(rhs,(IntegerType,FloatType))):
-                raise TypeMismatchInExpression(ast)
-        
-        elif (not isinstance(lhs,type(rhs))):
+        print(lhs_typ,rhs_typ)
+        if (isinstance(lhs_typ,ArrayType)):
             raise TypeMismatchInExpression(ast)
+
+        if (isinstance(lhs_typ,AutoType)):
+            lhs_typ = rhs_typ
+            infer(ast.lhs.name,rhs_typ,env)
+
+        if (isinstance(rhs_typ,AutoType)):
+            rhs_typ = lhs_typ
+            infer(ast.rhs.name,lhs_typ,env)
+        
+        if (self.check_type(lhs_typ,rhs_typ)==False):
+            print(10)
+            raise TypeMismatchInStatement(ast)
+        # elif (isinstance(lhs_typ,FloatType)):
+        #     if (not isinstance(rhs_typ,(IntegerType,FloatType))):
+        #         raise TypeMismatchInExpression(ast)
+        
+        # elif (not isinstance(lhs,type(rhs))):
+        #     raise TypeMismatchInExpression(ast)
     
     def visitBlockStmt(self, ast: BlockStmt, o):
         (in_loop,typ,env) = o
         inner = [{}] + env
-        for x in ast.body:
-            if (isinstance(x,VarDecl)):
-                if inner[0].get(x.name) is not None:
-                    raise Redeclared(Variable(),x.name)
-                inner[0][x.name] = self.visit(x.typ)
-        
         for x in ast.body:
             if (isinstance(x,VarDecl)):
                 self.visit(x,inner)
@@ -228,7 +250,7 @@ class StaticChecker(Visitor):
     
     def visitIfStmt(self, ast: IfStmt, o): 
         (in_loop,typ,env) = o
-        cond = self.visit(ast.cond,(None,env))
+        cond = self.visit(ast.cond,env)
 
         if (isinstance(cond,BooleanType)):
             raise TypeMismatchInStatement(ast)
@@ -240,11 +262,32 @@ class StaticChecker(Visitor):
     
     def visitForStmt(self, ast: ForStmt, o):
         (in_loop,typ,env) = o
-        init = self.visit(ast.init,env)
-        cond = self.visit(ast.cond,(None,env))
-        upd = self.visit(ast.upd,(None,env))
+        id = self.visit(ast.init.lhs,env)
+        init = self.visit(ast.init.rhs,env)
+        cond = self.visit(ast.cond,env)
+        upd = self.visit(ast.upd,env)
+        init_typ = init[0]
+        cond_typ = cond[0]
+        upd_typ = upd[0]
+        id_typ = id[0]
 
-        if (not isinstance(init,IntegerType) or (not isinstance(upd,IntegerType)) or (not isinstance(cond,BooleanType))):
+        if (isinstance(id_typ,AutoType)):
+            id_typ = IntegerType()
+            infer(id.name,IntegerType(),env)
+        
+        if (isinstance(init_typ,AutoType)):
+            init_typ = IntegerType()
+            infer(init.name,IntegerType(),env)
+        
+        if (isinstance(cond_typ,AutoType)):
+            cond_typ = BooleanType()
+            infer(cond.name,IntegerType(),env)
+        
+        if (isinstance(upd_typ,AutoType)):
+            upd_typ = BooleanType()
+            infer(upd.name,IntegerType(),env)
+
+        if (not isinstance(init_typ,IntegerType) or (not isinstance(upd_typ,IntegerType)) or (not isinstance(cond_typ,BooleanType))):
             raise TypeMismatchInStatement(ast)
         
         self.visit(ast.stmt,(True,typ,env))
@@ -253,6 +296,12 @@ class StaticChecker(Visitor):
     def visitWhileStmt(self, ast:WhileStmt, o): 
         (in_loop,typ,env) = o
         cond = self.visit(ast.cond,env)
+        cond_typ = cond[0]
+
+        if (isinstance(cond_typ,AutoType)):
+            cond_typ = BooleanType()
+            infer(cond.name,IntegerType(),env)
+
         if  (not isinstance(cond,BooleanType)):
             raise TypeMismatchInStatement(ast)
         self.visit(ast.stmt,(True,typ,env))
@@ -260,6 +309,12 @@ class StaticChecker(Visitor):
     def visitDoWhileStmt(self, ast:DoWhileStmt, o): 
         (in_loop,typ,env) = o
         cond = self.visit(ast.cond,env)
+        cond_typ = cond[0]
+
+        if (isinstance(cond_typ,AutoType)):
+            cond_typ = BooleanType()
+            infer(cond.name,IntegerType(),env)
+
         if  (not isinstance(cond,BooleanType)):
             raise TypeMismatchInStatement(ast)
         self.visit(ast.stmt,(True,typ,env))
@@ -284,84 +339,107 @@ class StaticChecker(Visitor):
             if (not isinstance(expr,type(typ))):
                 raise TypeMismatchInStatement(ast)
     
-    def visitCallStmt(self, ast, o): pass
+    def visitCallStmt(self, ast:CallStmt, o): 
+        func = None
+        for x in o:
+            if (x.get(ast.name) is not None):
+                if (isinstance(x[ast.name],dict)):
+                    func = x[ast.name]
+                    break
+                else:
+                    raise Undeclared(Function(),ast.name)
+        if (func is None):
+            raise Undeclared(Function(),ast.name)
+        if (len(func["param"])!=len(ast.args)):
+            raise TypeMismatchInStatement(ast)
+        for i in range(0,len(func["param"])):
+            param1 = func["param"][i]
+            param2 = self.visit(ast.args[i],o)
+            typ1 = param1.typ
+            typ2 = param2[0]
+            if (isinstance(typ1,AutoType)):
+                func["param"][i].typ = typ2
+                typ1 = typ2
+            if (isinstance(typ2,AutoType)):
+                infer(ast.args[i].name,typ1,o)
+                typ2 = typ1
+            if (self.check_type(typ1,typ2) == False):
+                raise TypeMismatchInStatement(ast)
 
 
     def visitBinExpr(self, ast, o): 
-        (init_typ,env) = o
-        left = self.visit(ast.left,(init_typ,env))
-        right = self.visit(ast.right,(init_typ,env))
+        left = self.visit(ast.left,o)
+        right = self.visit(ast.right,o)
+
+        left_typ = left[0]
+        right_typ = right[0]
+
         def check_type(accept_type,return_type=None):
             # if (isinstance(left,AutoType) and isinstance(right,AutoType)):
             #     raise TypeMismatchInExpression(ast)      
-            nonlocal left,right
-            if (isinstance(left,AutoType) and isinstance(right,AutoType)):
-                left = init_typ
-                right = init_typ
-                infer(ast.left.name,init_typ,env)
-                infer(ast.right.name,init_typ,env)
+            nonlocal left_typ,right_typ,left,right
 
-            if (isinstance(left,AutoType)):
-                left = right
-                infer(ast.left.name,right,env)
+            if (isinstance(left_typ,AutoType)):
+                left_typ = right_typ
+                infer(ast.left.name,right_typ,o)
     
-            if (right == AutoType()):
-                right = left
-                infer(ast.right.name,left,env)
+            if (isinstance(right_typ,AutoType)):
+                right_typ = left_typ
+                infer(ast.right.name,left_typ,o)
 
-            if (not isinstance(left,accept_type) or (not isinstance(right,accept_type))):
+            if (not isinstance(left_typ,accept_type) or (not isinstance(right_typ,accept_type))):
                 raise TypeMismatchInExpression(ast)
             if return_type:
                 return return_type
 
-            elif isinstance(left,IntegerType) and isinstance(right,FloatType):
-                return right
+            elif isinstance(left_typ,IntegerType) and isinstance(right_typ,FloatType):
+                return right_typ
 
-            elif isinstance(left,FloatType) and isinstance(right,IntegerType):
-                return left
+            elif isinstance(left_typ,FloatType) and isinstance(right_typ,IntegerType):
+                return left_typ
 
-            elif isinstance(left, type(right)):
-                return left
+            elif isinstance(left_typ, type(right_typ)):
+                return left_typ
 
             else:
                 raise TypeMismatchInExpression(ast)
         if (ast.op in ['+', '-', '*', '/']):
-            return check_type((IntegerType,FloatType))
+            return [check_type((IntegerType,FloatType)),None]
         elif (ast.op == '%'):
-            return check_type(IntegerType, IntegerType())
+            return [check_type(IntegerType, IntegerType()),None]
 
         elif ast.op in ['!=', '==']:
-            return check_type((IntegerType, BooleanType), BooleanType())
+            return [check_type((IntegerType, BooleanType), BooleanType()),None]
 
         elif ast.op in ['<', '<=', '>', '>=']:
-            return check_type((IntegerType, FloatType), BooleanType())
+            return [check_type((IntegerType, FloatType), BooleanType()),None]
 
         elif ast.op in ['&&', '||']:
-            return check_type(BooleanType, BooleanType())
+            return [check_type(BooleanType, BooleanType()),None]
 
         elif ast.op == "::":
-            return check_type(StringType,StringType())
+            return [check_type(StringType,StringType()),None]
 
     def visitUnExpr(self, ast, o):
         (init_type,env) = o
         if ast.op == '!':
             exp = self.visit(ast.body, (BooleanType(),env))
             if (isinstance(exp,AutoType)):
-                exp = BooleanType
+                exp = BooleanType()
                 infer(ast.exp.val.name,BooleanType(),o)
             if isinstance(exp, BooleanType):
-                return exp
+                return [exp,None]
             else:
                 raise TypeMismatchInExpression(ast)
 
         elif ast.op == '-':
             exp = self.visit(ast.body, (init_type,env))
             if isinstance(exp, (IntegerType, FloatType)):
-                return exp
+                return [exp,None]
             else:
                 raise TypeMismatchInExpression(ast)
             
-    def visitId(self, ast, o):
+    def visitId(self, ast, o): 
         for x in o:
             if (x.get(ast.name) is not None):
                 if (isinstance(x[ast.name],dict)):
@@ -369,13 +447,16 @@ class StaticChecker(Visitor):
                 return x[ast.name]
         raise Undeclared(Variable(),ast.name)
 
-    def visitArrayLit(self, ast, o): 
-        (init_type,env) = o
-        valuelst = list(map(lambda x: self.visit(x,(init_type,env)),ast.explist))
+    def visitArrayLit(self, ast: ArrayLit, o): 
+        valuelst = list(map(lambda x: self.visit(x,o),ast.explist))
         
-        if (isinstance(valuelst[0],ArrayType)):
-            first_ele = valuelst[0]
-            for x in valuelst:
+        valuelst_typ = []
+        for x in valuelst:
+            valuelst_typ += [x[0]]
+
+        if (isinstance(valuelst_typ[0],ArrayType)):
+            first_ele = valuelst_typ[0]
+            for x in valuelst_typ:
                 if (x.dimensions!=first_ele.dimensions):
                     raise IllegalArrayLiteral(ast)
                 if ((isinstance(x.typ,FloatType)) and (isinstance(first_ele.typ,IntegerType))):
@@ -383,71 +464,101 @@ class StaticChecker(Visitor):
                 if ((self.check_type(first_ele.typ,x.typ) == False) or self.illegal_array_lit):
                     raise IllegalArrayLiteral(ast)
                 
-            return ArrayType([len(valuelst)],first_ele)
+            return [ArrayType([len(valuelst)]+first_ele.dimensions,first_ele.typ),None]
 
-        first_ele_type = valuelst[0]
-        for ele_type in valuelst:
+        first_ele_type = valuelst_typ[0]
+        for ele_type in valuelst_typ:
+            if (isinstance(ele_type,AutoType)):
+                continue
             if (isinstance(first_ele_type,AutoType)):
                 first_ele_type = ele_type
             if ((isinstance(ele_type,FloatType)) and (isinstance(first_ele_type,IntegerType))):
                 first_ele_type = FloatType()
             if (self.check_type(first_ele_type,ele_type) == False):
-                print(ele_type,first_ele_type)
                 self.illegal_array_lit = True
-        return ArrayType([len(valuelst)],first_ele_type)
+        for i in range(len(valuelst_typ)):
+            if (isinstance(valuelst_typ[i],AutoType)):
+                infer(ast.explist[i].name,first_ele_type,o)
+        return [ArrayType([len(valuelst)],first_ele_type),None]
 
-    def visitFuncCall(self, ast, o): pass
+    def visitFuncCall(self, ast:FuncCall, o):
+        func = None
+        for x in o:
+            
+            if (x.get(ast.name) is not None):
+                if (isinstance(x[ast.name],dict)):
+                    func = x[ast.name]
+                    break
+                else:
+                    raise Undeclared(Function(),ast.name)
+        if (func is None):
+            raise Undeclared(Function(),ast.name)
+        if (len(func["param"])!=len(ast.args)):
+            raise TypeMismatchInExpression(ast)
+        for i in range(0,len(func["param"])):
+            param1 = func["param"][i]
+            param2 = self.visit(ast.args[i],o)
+            typ1 = param1.typ
+            typ2 = param2[0]
+            if (isinstance(typ1,AutoType)):
+                func["param"][i].typ = typ2
+                typ1 = typ2
+            if (isinstance(typ2,AutoType)):
+                infer(ast.args[i].name,typ1,o)
+                typ2 = typ1
+            if (self.check_type(typ1,typ2) == False):
+                raise TypeMismatchInExpression(ast)
+        return [func["typ"],None]
 
     def visitArrayType(self, ast, o):
-        return ast
+        return [ast,None]
 
-    def visitArrayCell(self, ast, o):
-        (init_typ,env) = o
-        arr = self.visit(Id(ast.name),env)
+    def visitArrayCell(self, ast:ArrayCell, o):
+        arr = self.visit(Id(ast.name),o)
         count = len(ast.cell)
+        arr_typ = arr[0]
 
-        if (not isinstance(arr,ArrayType)):
+        if (not isinstance(arr_typ,ArrayType)):
             raise TypeMismatchInExpression(ast)
-        if (len(ast.cell)>len(arr.dimensions)):
+        if (len(ast.cell)>len(arr_typ.dimensions)):
             raise TypeMismatchInExpression(ast)
 
-        if (len(ast.cell)==len(arr.dimensions)):
-            arr = arr.typ
+        if (len(ast.cell)==len(arr_typ.dimensions)):
+            arr = arr_typ.typ
         else:
-            arr.dimensions = arr.dimensions[len(ast.cell):]
+            arr_typ.dimensions = arr_typ.dimensions[len(ast.cell):]
+            arr = arr_typ
         
         for x in ast.cell:
-            typ = self.visit(x,env)
-            if (not isinstance(typ,IntegerType)):
+            typ = self.visit(x,o)
+            if (not isinstance(typ[0],IntegerType)):
                 raise TypeMismatchInExpression(ast)
-        
-        return arr 
-
-        
+        print(arr)
+        return [arr,None] 
 
     def visitIntegerLit(self, ast, o):
-        return IntegerType()
+        return [IntegerType(),None]
 
     def visitFloatLit(self, ast, o):
-        return FloatType()
+        return [FloatType(),None]
     
     def visitBooleanLit(self, ast, o):
-        return BooleanType()
+        return [BooleanType(),None]
     
     def visitStringLit(self, ast, o):
-        return StringType()
+        return [StringType(),None]
 
     def visitIntegerType(self, ast, o):
-        return IntegerType()
+        return [IntegerType(),None]
     
     def visitFloatType(self, ast, o):
-        return FloatType()
+        return [FloatType(),None]
     
     def visitStringType(self, ast, o):
-        return StringType()
+        return [StringType(),None]
 
     def visitAutoType(self, ast, o):
-        return AutoType()
+        return [AutoType(),None]
     
     def visitVoidType(self, ast, o):
-        return VoidType()    
+        return [VoidType(),None]    
