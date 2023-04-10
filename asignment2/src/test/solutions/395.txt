@@ -1,0 +1,5 @@
+Program([
+	FuncDecl(foo, BooleanType, [Param(x, IntegerType)], bar, BlockStmt([IfStmt(BinExpr(==, BinExpr(%, Id(x), IntegerLit(2)), IntegerLit(0)), ReturnStmt(BooleanLit(True)), ReturnStmt(BooleanLit(False)))]))
+	FuncDecl(check, VoidType, [Param(n, IntegerType)], None, BlockStmt([VarDecl(i, IntegerType), ForStmt(AssignStmt(Id(i), IntegerLit(0)), BinExpr(<, Id(i), Id(n)), BinExpr(+, Id(i), IntegerLit(1)), IfStmt(BinExpr(==, FuncCall(foo, [Id(i)]), BooleanLit(True)), CallStmt(print, Id(i)))), ReturnStmt()]))
+	FuncDecl(main, VoidType, [], None, BlockStmt([VarDecl(n, IntegerType), CallStmt(print, StringLit(Input n:)), CallStmt(readInt, Id(n)), CallStmt(print, StringLit(The even number from 0 to n is )), CallStmt(check, Id(n))]))
+])

@@ -1,0 +1,9 @@
+
+            foo: function void()
+            {
+                a: integer = 1+2+3;
+                b: float = 2.e3;
+                c = !c + 1;
+                break;
+            }
+        

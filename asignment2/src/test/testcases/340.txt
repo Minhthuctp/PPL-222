@@ -1,0 +1,8 @@
+
+            foo : function integer() {}
+            main: function void() {
+                a = foo();
+                b = foo();
+                a = b ;
+            }       
+        

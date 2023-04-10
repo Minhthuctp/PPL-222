@@ -1,0 +1,4 @@
+Program([
+	FuncDecl(foo, FloatType, [Param(n, IntegerType), InheritOutParam(a, FloatType)], None, BlockStmt([ReturnStmt(BooleanLit(True))]))
+	FuncDecl(main, VoidType, [OutParam(m, FloatType), OutParam(a, FloatType)], foo, BlockStmt([ContinueStmt(), ReturnStmt(BooleanLit(True))]))
+])

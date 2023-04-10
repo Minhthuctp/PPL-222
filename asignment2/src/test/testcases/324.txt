@@ -1,0 +1,6 @@
+
+            main: function void() {
+                return a[1];
+                return {1,2,3};
+            }
+        

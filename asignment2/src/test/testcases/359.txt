@@ -1,0 +1,7 @@
+
+            a : integer = 2;
+            main: function void() {
+                while ((a<=c) || (c>=d) || (d==c))
+                    print(a);
+            }  
+        

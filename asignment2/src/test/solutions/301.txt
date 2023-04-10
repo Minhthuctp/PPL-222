@@ -1,0 +1,3 @@
+Program([
+	FuncDecl(midSquare, IntegerType, [Param(seed, IntegerType)], bar, BlockStmt([VarDecl(temp, IntegerType, FuncCall(pow, [Id(seed), IntegerLit(2)])), VarDecl(s, StringType, FuncCall(to_string, [Id(temp)])), CallStmt(erase, Id(s), BinExpr(-, BinExpr(+, FuncCall(begin, []), FuncCall(size, [Id(s)])), IntegerLit(2)), FuncCall(end, [Id(s)])), ReturnStmt(FuncCall(stoi, [FuncCall(substr, [Id(s), BinExpr(-, FuncCall(size, [Id(s)]), IntegerLit(4))])]))]))
+])

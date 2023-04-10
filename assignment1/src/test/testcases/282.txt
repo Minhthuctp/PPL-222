@@ -1,0 +1,13 @@
+
+            bar: function void (inherit out a: float, inherit out b: string) inherit foo {
+                for (i = 1, i < 10, i + 1)
+                {
+                    print(a[i,j,e,f]);
+                }
+                if (a[1]==2)
+                    return ;
+                else
+                    break;
+                foo(1+2,x+1,true);
+            }
+        

@@ -1,0 +1,3 @@
+Program([
+	VarDecl(c, IntegerType, IntegerLit(2))
+])

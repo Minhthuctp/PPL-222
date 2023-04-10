@@ -1,0 +1,7 @@
+
+            a : integer = 2;
+            main: function void() {
+                for (a = 1,b<=20+30,c + 1)
+                    print(a[i]);
+            }  
+        

@@ -1,0 +1,8 @@
+ 
+            foo(x, y: integer) {
+                do {
+                    a = 1;
+                }
+                while (a != 0)
+            }
+        

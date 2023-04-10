@@ -1,0 +1,8 @@
+
+            main: function void() {
+                for (c=2,c==3,c+1)
+                {
+                
+                }
+            }       
+        

@@ -1,0 +1,8 @@
+
+            foo: function string (a: string, b: float) {
+                do {
+                    print("hello");
+                }
+                while (a==b);
+            }
+        

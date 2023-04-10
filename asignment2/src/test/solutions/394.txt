@@ -1,0 +1,5 @@
+Program([
+	VarDecl(s, StringType)
+	FuncDecl(random, StringType, [Param(n, IntegerType)], None, BlockStmt([VarDecl(i, IntegerType), AssignStmt(Id(s), StringLit()), ForStmt(AssignStmt(Id(i), IntegerLit(0)), BinExpr(<, Id(i), Id(n)), BinExpr(+, Id(i), IntegerLit(1)), AssignStmt(Id(s), BinExpr(+, Id(s), FuncCall(randomChar, [])))), ReturnStmt(Id(s))]))
+	FuncDecl(main, VoidType, [], None, BlockStmt([VarDecl(n, IntegerType), CallStmt(print, StringLit(Input n:)), CallStmt(readInt, Id(n)), CallStmt(print, StringLit(The random string length n is ), FuncCall(random, [Id(n)]))]))
+])

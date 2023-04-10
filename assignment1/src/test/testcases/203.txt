@@ -1,0 +1,3 @@
+a,b : float;
+                main: function void() {}
+        

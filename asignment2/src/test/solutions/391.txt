@@ -1,0 +1,4 @@
+Program([
+	FuncDecl(sum, IntegerType, [Param(n, IntegerType)], None, BlockStmt([VarDecl(total, IntegerType, IntegerLit(0)), VarDecl(dem, IntegerType, IntegerLit(0)), DoWhileStmt(BinExpr(!=, Id(n), IntegerLit(0)), BlockStmt([AssignStmt(Id(total), BinExpr(+, Id(total), BinExpr(%, Id(n), IntegerLit(10)))), AssignStmt(Id(dem), BinExpr(+, Id(dem), IntegerLit(1))), AssignStmt(Id(n), BinExpr(%, Id(n), IntegerLit(10)))]))]))
+	FuncDecl(main, VoidType, [], None, BlockStmt([VarDecl(n, IntegerType), CallStmt(print, StringLit(Input n:)), CallStmt(readInt, Id(n)), CallStmt(print, StringLit(The sum is), FuncCall(sum, [Id(n)]))]))
+])

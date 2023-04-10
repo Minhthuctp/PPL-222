@@ -1,0 +1,18 @@
+
+        sum: function integer(n: integer)
+        {
+            total,dem : integer = 0,0;
+            do
+            {
+                total = total + (n%10);
+                dem = dem + 1;
+                n = n % 10;
+            }
+            while (n!=0);
+        }
+        main: function void() {
+            n : integer;
+            print("Input n:");
+            readInt(n);
+            print("The sum is", sum(n));
+        }

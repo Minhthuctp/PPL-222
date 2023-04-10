@@ -1,0 +1,5 @@
+
+            a,b : array[5] of integer = {1,2,3},{2,3,4};
+            c: float = 2.2;
+            d: boolean = true;
+        

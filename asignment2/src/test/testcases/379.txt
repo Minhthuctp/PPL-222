@@ -1,0 +1,7 @@
+
+            main: function boolean (n: auto, b: integer, a: float) inherit foo {
+                while (a==b)
+                    print("Hello");
+                a=c;
+            }
+        

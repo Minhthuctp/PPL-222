@@ -1,0 +1,5 @@
+
+            foo: function string (a: string, b: float) {
+                foo(2,x+3,foo(3),a[3]);
+            }
+        

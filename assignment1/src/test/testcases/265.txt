@@ -1,0 +1,11 @@
+
+            main: function void() {
+                do
+                {
+                    print(a[i]);
+                    a: integer = true;
+                    b = c;
+                }
+                while ((a==d) || (b>c));
+            }       
+        

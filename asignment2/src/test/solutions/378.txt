@@ -1,0 +1,6 @@
+Program([
+	FuncDecl(foo, FloatType, [Param(n, IntegerType), InheritOutParam(a, FloatType)], None, BlockStmt([ReturnStmt()]))
+	VarDecl(a, IntegerType, IntegerLit(3))
+	VarDecl(b, FloatType, FloatLit(2.5))
+	VarDecl(c, StringType, StringLit(anc_ac))
+])

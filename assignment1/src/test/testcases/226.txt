@@ -1,0 +1,3 @@
+
+            a: integer = a::b;       
+        

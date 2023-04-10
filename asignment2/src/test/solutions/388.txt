@@ -1,0 +1,4 @@
+Program([
+	FuncDecl(check_palindrom, BooleanType, [Param(s, StringType)], None, BlockStmt([VarDecl(i, IntegerType), VarDecl(s1, StringType, StringLit()), ForStmt(AssignStmt(Id(i), IntegerLit(0)), BinExpr(<, Id(i), FuncCall(length, [Id(s)])), BinExpr(+, Id(i), IntegerLit(1)), AssignStmt(Id(s1), BinExpr(+, Id(s1), ArrayCell(s, [Id(i)])))), IfStmt(BinExpr(==, Id(s1), Id(s)), ReturnStmt(BooleanLit(True)), ReturnStmt(BooleanLit(False)))]))
+	FuncDecl(main, VoidType, [], None, BlockStmt([VarDecl(s, StringType), CallStmt(print, StringLit(Input s:)), CallStmt(readString, Id(s)), IfStmt(BinExpr(==, FuncCall(chec_palindrom, [Id(s)]), BooleanLit(True)), CallStmt(print, StringLit(s is palindrom string)), CallStmt(print, StringLit(s not is palindrom string)))]))
+])

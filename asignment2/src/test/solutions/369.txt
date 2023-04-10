@@ -1,0 +1,4 @@
+Program([
+	VarDecl(a, IntegerType, IntegerLit(2))
+	FuncDecl(main, VoidType, [], None, BlockStmt([BreakStmt()]))
+])

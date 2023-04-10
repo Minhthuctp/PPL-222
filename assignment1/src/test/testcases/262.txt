@@ -1,0 +1,6 @@
+
+            main: function void() {
+                do
+                while (a==c);
+            }    
+        

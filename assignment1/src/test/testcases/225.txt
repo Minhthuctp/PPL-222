@@ -1,0 +1,6 @@
+
+            main: function void() {
+                return a[id+1,a,c,true+false];
+                return {1,2,3};
+            }
+        

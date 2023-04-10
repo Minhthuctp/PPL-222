@@ -1,0 +1,4 @@
+Program([
+	FuncDecl(freq, IntegerType, [Param(s, StringType), Param(c, StringType)], None, BlockStmt([VarDecl(count, IntegerType, IntegerLit(0)), VarDecl(i, AutoType), ForStmt(AssignStmt(Id(i), IntegerLit(0)), BinExpr(<, Id(i), FuncCall(length, [Id(s)])), BinExpr(+, Id(i), IntegerLit(1)), IfStmt(BinExpr(==, ArrayCell(s, [Id(i)]), Id(c)), AssignStmt(Id(count), BinExpr(+, Id(count), IntegerLit(1))))), ReturnStmt(Id(count))]))
+	FuncDecl(main, VoidType, [], None, BlockStmt([VarDecl(s, StringType), VarDecl(c, StringType), CallStmt(print, StringLit(Input s:)), CallStmt(readString, Id(n)), CallStmt(print, StringLit(Input c:)), CallStmt(readString, Id(c)), CallStmt(print, StringLit(The frequency of c in s is), FuncCall(freq, [Id(s), Id(c)]))]))
+])

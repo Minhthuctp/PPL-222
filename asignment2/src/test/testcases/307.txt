@@ -1,0 +1,9 @@
+
+            main: function void() {
+            for (a = 1, b < 100, c+1) {
+                d : integer = 0;
+                while (e < 200) {f = g+1;}
+                while (h != 20) {}
+            }
+        }
+        

@@ -1,0 +1,16 @@
+
+        s : string;
+        random: function string(n: integer)
+        {
+            i: integer;
+            s = "";
+            for (i = 0,i < n,i+1)
+                s = s + randomChar();
+            return s;
+        }
+        main: function void() {
+            n : integer;
+            print("Input n:");
+            readInt(n);
+            print("The random string length n is ", random(n));
+        }

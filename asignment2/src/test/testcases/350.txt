@@ -1,0 +1,12 @@
+
+            main: function void() {
+                if (a==c)
+                    if (c==d)
+                        b=c;
+                else
+                    if ((f==c) && (g==h) || (c<=d))
+                        d=c;
+                    else
+                        b=c;
+            }       
+        

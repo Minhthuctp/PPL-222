@@ -1,0 +1,21 @@
+
+        foo: function void()
+        {
+            i: integer;
+            a: float = 1;
+            {
+                c : integer = true;
+                d,f,g: float = 1.2,3,4;
+                for (i=0,i<c,i+1)
+                    print(g);
+            }
+        }
+        main: function auto() {
+            n : integer;
+            a_b_c: auto;
+            {
+                foo();
+                foo();
+                hello_foo();
+            }
+        }

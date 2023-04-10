@@ -1,0 +1,8 @@
+
+            a : integer = 2;
+            main: function void() {
+                do
+                    c = c + 1;
+                while (a==c);
+            }  
+        

@@ -1,0 +1,8 @@
+
+            a: integer;
+            b: float;
+            c,d: auto;
+            f: boolean;
+            e,g,h: boolean;
+            i,j: array[3,4,5] of integer;            
+        

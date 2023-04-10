@@ -1,0 +1,3 @@
+Program([
+	FuncDecl(bar, VoidType, [InheritOutParam(a, FloatType), InheritOutParam(b, StringType)], foo, BlockStmt([ForStmt(AssignStmt(Id(i), IntegerLit(1)), BinExpr(<, Id(i), IntegerLit(10)), BinExpr(+, Id(i), IntegerLit(1)), BlockStmt([CallStmt(print, ArrayCell(a, [Id(i), Id(j), Id(e), Id(f)]))])), IfStmt(BinExpr(==, ArrayCell(a, [IntegerLit(1)]), IntegerLit(2)), ReturnStmt(), BreakStmt()), CallStmt(foo, BinExpr(+, IntegerLit(1), IntegerLit(2)), BinExpr(+, Id(x), IntegerLit(1)), BooleanLit(True))]))
+])

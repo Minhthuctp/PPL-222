@@ -1,0 +1,4 @@
+Program([
+	FuncDecl(foo, VoidType, [], None, BlockStmt([VarDecl(i, IntegerType), VarDecl(a, FloatType, IntegerLit(1)), BlockStmt([VarDecl(c, IntegerType, BooleanLit(True)), VarDecl(d, FloatType, FloatLit(1.2)), VarDecl(f, FloatType, IntegerLit(3)), VarDecl(g, FloatType, IntegerLit(4)), ForStmt(AssignStmt(Id(i), IntegerLit(0)), BinExpr(<, Id(i), Id(c)), BinExpr(+, Id(i), IntegerLit(1)), CallStmt(print, Id(g)))])]))
+	FuncDecl(main, AutoType, [], None, BlockStmt([VarDecl(n, IntegerType), VarDecl(a_b_c, AutoType), BlockStmt([CallStmt(foo, ), CallStmt(foo, ), CallStmt(hello_foo, )])]))
+])

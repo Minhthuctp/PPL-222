@@ -1,0 +1,17 @@
+
+            inc: function auto(a: integer, b: float)
+            {
+                a = -1 + -2 + -3;
+                b = a + a / b + a;
+                while (a!=0)
+                    a = a - 1;
+                return a;
+                do
+                {
+                    a = b + 1;
+                    d: integer = true;
+                    print("anc dbafd \t \f",d);
+                }
+                while (a==true);
+            }
+        

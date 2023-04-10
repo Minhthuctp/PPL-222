@@ -1,0 +1,11 @@
+
+            main: function void() {
+                do
+                {
+                    a = a + 1;
+                    c = c + 1;
+                    return true;
+                }
+                while ((a==c) || (c==d));
+            }    
+        

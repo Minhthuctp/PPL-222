@@ -1,0 +1,18 @@
+
+        freq: function integer(s: string,c:string)
+        {
+            count : integer =0;
+            i : auto;
+            for (i = 0,i<length(s),i+1)
+                if (s[i]==c)
+                    count = count + 1;
+            return count;
+        }
+        main: function void() {
+            s,c : string;
+            print("Input s:");
+            readString(n);
+            print("Input c:");
+            readString(c);
+            print("The frequency of c in s is", freq(s,c));
+        }

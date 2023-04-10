@@ -1,0 +1,8 @@
+
+            main: function void() {
+                while ((anc+nccc) || (aaaa+vc!=c)
+                {
+                
+                }
+            }    
+        

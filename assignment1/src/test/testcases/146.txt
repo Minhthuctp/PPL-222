@@ -1,0 +1,6 @@
+
+            fac: function integer(){
+                a: float = 1_12.0e10;
+                return;
+            }        
+        

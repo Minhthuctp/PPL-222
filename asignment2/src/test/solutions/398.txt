@@ -1,0 +1,5 @@
+Program([
+	VarDecl(a, ArrayType([10], IntegerType))
+	FuncDecl(find_max, IntegerType, [Param(n, IntegerType)], None, BlockStmt([VarDecl(max, IntegerType, ArrayCell(a, [IntegerLit(0)])), VarDecl(i, IntegerType, IntegerLit(0)), ForStmt(AssignStmt(Id(i), IntegerLit(1)), BinExpr(<, Id(i), Id(n)), BinExpr(+, Id(i), IntegerLit(1)), IfStmt(BinExpr(<, Id(max), ArrayCell(a, [Id(i)])), AssignStmt(Id(max), ArrayCell(a, [Id(i)])))), ReturnStmt(Id(max))]))
+	FuncDecl(main, VoidType, [], None, BlockStmt([VarDecl(n, IntegerType), CallStmt(print, StringLit(Input n:)), CallStmt(readInt, Id(n)), VarDecl(i, IntegerType, IntegerLit(0)), ForStmt(AssignStmt(Id(i), IntegerLit(0)), BinExpr(<, Id(i), Id(n)), BinExpr(+, Id(i), IntegerLit(1)), BlockStmt([CallStmt(print, StringLit(Input a[i]:)), CallStmt(readInt, ArrayCell(a, [Id(i)]))])), CallStmt(print, StringLit(The max number in arr is), FuncCall(max, [Id(n)]))]))
+])

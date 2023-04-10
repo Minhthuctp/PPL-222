@@ -1,0 +1,9 @@
+
+            main: function array[5] of string () {
+                if ((a!=b) && (b==c)) 
+                    a=b; 
+            }
+            foo: function float () {
+                return ; 
+            }
+        

@@ -1,0 +1,9 @@
+
+            main: function void() {
+                if (a==c)
+                    if (an + ad == cd)
+                        b = c + 1;
+                else 
+                    c = abc;
+            }    
+        

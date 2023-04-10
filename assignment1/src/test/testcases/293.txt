@@ -1,0 +1,35 @@
+
+        f, a: array[10,10] of integer;
+        sum: function integer(n: integer, m: integer,x: integer, y:integer)
+        {
+            f[0,0] = 0;
+            i,j: integer = 0,0;
+            for (i=0,i<n,i+1)
+                f[i,0] = 0;
+            for (j=0,j<m,j+1)
+                f[0,j] = 0;
+            for (i = 1,i < n,i+1)
+                for (j = 1, j < m,j+1)
+                    f[i,j] = f[i-1,j] + f[i,j-1] - f[i-1,j-1] + a[i-1,j-1];
+            return f[x-1,y-1];
+        }
+        main: function void() {
+            n,m : integer;
+            print("Input n:");
+            readInt(n);
+            print("Input m:");
+            readInt(m);
+            i,j: integer = 0,0;
+            for (i = 0,i < n,i+1)
+                for (j = 0, j < m,j+1)
+                {
+                    print("Input a[i,j]:");
+                    readInt(a[i,j]);
+                }
+            x,y: integer;
+            print("Input x:");
+            readInt(x);
+            print("Input y:");
+            readInt(y);
+            print("The sum from 1,1 to x,y is", sum(n,m,x,y));
+        }

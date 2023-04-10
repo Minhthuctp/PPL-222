@@ -1,0 +1,4 @@
+Program([
+	VarDecl(a, FloatType, FloatLit(2000.0))
+	FuncDecl(main, VoidType, [], None, BlockStmt([IfStmt(BinExpr(||, BinExpr(&&, BinExpr(!=, Id(a), IntegerLit(1)), BinExpr(==, Id(a), Id(f))), BinExpr(==, Id(c), Id(d))), AssignStmt(Id(a), BinExpr(+, Id(a), IntegerLit(1))))]))
+])

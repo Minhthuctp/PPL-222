@@ -1,0 +1,6 @@
+
+            main: function boolean (n: auto, b: integer, a: float) inherit foo {
+                for (i=1,i<=10,i+1)
+                    print(i);
+            }
+        

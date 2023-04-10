@@ -1,0 +1,6 @@
+midSquare: function integer (seed: integer) inherit bar {
+          temp: integer = pow(seed, 2);
+          s: string = to_string(temp);
+          erase(s, begin() + size(s) - 2, end(s));
+          return stoi(substr(s, size(s) - 4));
+        }

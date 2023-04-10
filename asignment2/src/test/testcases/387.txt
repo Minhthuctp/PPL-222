@@ -1,0 +1,22 @@
+
+        count: function boolean(n: integer)
+        {
+            i: integer;
+            c: integer = 0;
+            for (i=1,i<n,i+1)
+                if (n%i==0)
+                    c = c + 1;
+            if (c == 2)
+                return true;
+            else 
+                return false;
+        }
+        main: function void() {
+            n : integer;
+            print("Input n:");
+            readInt(n);
+            if (count(n) == true)
+                print("n is prime number");
+            else
+                print("n is not prime number");
+        }

@@ -1,0 +1,17 @@
+
+        fibonacci: function integer(n: integer)
+        {
+            f: array[100] of integer;
+            f[0] = 1;
+            f[1] = 1;
+            i : integer;
+            for (i=2,i<n,i+1)
+                f[i] = f[i-1] + f[i-2];
+            return f[n-1];
+        }
+        main: function void() {
+            n : integer;
+            print("Input n:");
+            readInt(n);
+            print("The nth fibonacci number is", fibonacci(n));
+        }

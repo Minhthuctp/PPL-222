@@ -1,0 +1,12 @@
+
+            main: function void() {
+                do
+                {
+                    a = a + 1;
+                    b = b + 1;
+                    c = c * 2;
+                    d = a || b && c + !c;
+                }
+                while (a==c);
+            }  
+        

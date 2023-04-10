@@ -1,0 +1,7 @@
+
+            main: function void() {
+                a = 2+4;
+                b = "anc"+ "cfg" +5;
+                c = 2.3;
+            }    
+        

@@ -1,0 +1,4 @@
+Program([
+	FuncDecl(foo, IntegerType, [], None, BlockStmt([]))
+	FuncDecl(main, VoidType, [], None, BlockStmt([AssignStmt(Id(a), FuncCall(foo, [])), AssignStmt(Id(b), FuncCall(foo, [])), AssignStmt(Id(a), Id(b))]))
+])

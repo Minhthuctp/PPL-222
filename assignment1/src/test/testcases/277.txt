@@ -1,0 +1,13 @@
+
+            main: function array[5] of string () {
+                if (a!=b) 
+                    a=b; 
+                else
+                    if (a==b)
+                    {
+                        print(a);
+                        a = a + 1;
+                        b = b % 10;
+                    }
+            }
+        

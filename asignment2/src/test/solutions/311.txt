@@ -1,0 +1,12 @@
+Program([
+	VarDecl(a, IntegerType)
+	VarDecl(b, FloatType)
+	VarDecl(c, AutoType)
+	VarDecl(d, AutoType)
+	VarDecl(f, BooleanType)
+	VarDecl(e, BooleanType)
+	VarDecl(g, BooleanType)
+	VarDecl(h, BooleanType)
+	VarDecl(i, ArrayType([3, 4, 5], IntegerType))
+	VarDecl(j, ArrayType([3, 4, 5], IntegerType))
+])

@@ -1,0 +1,6 @@
+
+            main: function void() {
+                while (1)
+                 a=20;
+            }       
+        

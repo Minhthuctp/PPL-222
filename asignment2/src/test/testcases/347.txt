@@ -1,0 +1,8 @@
+
+            main: function void() {
+                if (a > b )
+                    o = c - 1;
+                else
+                    c = d - f;
+            }    
+        

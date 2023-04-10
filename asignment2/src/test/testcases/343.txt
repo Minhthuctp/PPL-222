@@ -1,0 +1,5 @@
+
+            bar: function integer() {
+                a = x*y + y*x;
+            }    
+        

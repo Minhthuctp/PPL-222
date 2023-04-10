@@ -1,0 +1,21 @@
+
+        check_palindrom: function boolean(s: string)
+        {
+            i: integer;
+            s1: string = "";
+            for (i=0,i<length(s),i+1)
+                s1 = s1 + s[i]; 
+            if (s1==s)
+                return true;
+            else 
+                return false;
+        }
+        main: function void() {
+            s: string;
+            print("Input s:");
+            readString(s);
+            if (chec_palindrom(s) == true)
+                print("s is palindrom string");
+            else
+                print("s not is palindrom string");
+        }

@@ -1,0 +1,3 @@
+
+            foo: function float (n : integer, inherit out a,b,c: float) {}
+        

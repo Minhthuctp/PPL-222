@@ -1,0 +1,1 @@
+x,,,y,:,array,[,2,,,3,],of,integer,<EOF>

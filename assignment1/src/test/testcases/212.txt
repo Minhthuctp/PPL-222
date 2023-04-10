@@ -1,0 +1,4 @@
+
+            a : integer = 3;
+            b,c : float = a+1,5;
+        

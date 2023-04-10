@@ -1,0 +1,19 @@
+
+        inc_x: function void(out x: integer, d: integer) 
+        {
+            x = x + d;
+        }
+        foo: function integer(n: integer)
+        {
+            i: integer;
+            sum: integer = 0;
+            for (i=0,i<n,inc_x(i,1))
+                inc_x(sum,i);
+            return sum;
+        }
+        main: function void() {
+            n: integer;
+            print("Input n:");
+            readInteger(n);
+            print("The sum is ",foo(n));
+        }

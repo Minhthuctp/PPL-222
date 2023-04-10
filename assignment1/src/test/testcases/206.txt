@@ -1,0 +1,4 @@
+bar: function void() {}
+            if (a==b) 
+                print(a);
+        

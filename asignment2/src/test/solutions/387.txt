@@ -1,0 +1,4 @@
+Program([
+	FuncDecl(count, BooleanType, [Param(n, IntegerType)], None, BlockStmt([VarDecl(i, IntegerType), VarDecl(c, IntegerType, IntegerLit(0)), ForStmt(AssignStmt(Id(i), IntegerLit(1)), BinExpr(<, Id(i), Id(n)), BinExpr(+, Id(i), IntegerLit(1)), IfStmt(BinExpr(==, BinExpr(%, Id(n), Id(i)), IntegerLit(0)), AssignStmt(Id(c), BinExpr(+, Id(c), IntegerLit(1))))), IfStmt(BinExpr(==, Id(c), IntegerLit(2)), ReturnStmt(BooleanLit(True)), ReturnStmt(BooleanLit(False)))]))
+	FuncDecl(main, VoidType, [], None, BlockStmt([VarDecl(n, IntegerType), CallStmt(print, StringLit(Input n:)), CallStmt(readInt, Id(n)), IfStmt(BinExpr(==, FuncCall(count, [Id(n)]), BooleanLit(True)), CallStmt(print, StringLit(n is prime number)), CallStmt(print, StringLit(n is not prime number)))]))
+])

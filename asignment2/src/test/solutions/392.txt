@@ -1,0 +1,4 @@
+Program([
+	FuncDecl(fibonacci, IntegerType, [Param(n, IntegerType)], None, BlockStmt([VarDecl(f, ArrayType([100], IntegerType)), AssignStmt(ArrayCell(f, [IntegerLit(0)]), IntegerLit(1)), AssignStmt(ArrayCell(f, [IntegerLit(1)]), IntegerLit(1)), VarDecl(i, IntegerType), ForStmt(AssignStmt(Id(i), IntegerLit(2)), BinExpr(<, Id(i), Id(n)), BinExpr(+, Id(i), IntegerLit(1)), AssignStmt(ArrayCell(f, [Id(i)]), BinExpr(+, ArrayCell(f, [BinExpr(-, Id(i), IntegerLit(1))]), ArrayCell(f, [BinExpr(-, Id(i), IntegerLit(2))])))), ReturnStmt(ArrayCell(f, [BinExpr(-, Id(n), IntegerLit(1))]))]))
+	FuncDecl(main, VoidType, [], None, BlockStmt([VarDecl(n, IntegerType), CallStmt(print, StringLit(Input n:)), CallStmt(readInt, Id(n)), CallStmt(print, StringLit(The nth fibonacci number is), FuncCall(fibonacci, [Id(n)]))]))
+])

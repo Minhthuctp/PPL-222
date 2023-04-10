@@ -1,0 +1,8 @@
+
+            foo: function float (n : integer, inherit out a: float) {
+                return ;
+            }
+            a : integer = 3;
+            b : float = 2.5;
+            c : string = "anc_ac";
+        

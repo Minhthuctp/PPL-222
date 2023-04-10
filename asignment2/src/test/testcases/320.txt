@@ -1,0 +1,4 @@
+
+            foo: function string (a: string, b: float) {}
+            main: function auto (a: integer, b: float) {}
+        

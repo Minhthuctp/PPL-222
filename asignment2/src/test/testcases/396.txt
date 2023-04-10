@@ -1,0 +1,42 @@
+
+        a,b: array[10] of integer;
+        swap: function void(out a: array[10] of integer, out b: array[10] of integer, n: integer)
+        {
+            if (n>10)
+                return;
+            else
+            {
+                temp,i : integer;
+                for (i=0,i<n,i+1)
+                {
+                    temp=a[i];
+                    a[i]=b[i];
+                    b[i]=temp;
+                }
+            }
+        }
+        main: function void() {
+            n : integer;
+            print("Input n:");
+            i : integer;
+            for (i=0,i<n,i+1)
+            {
+                print("Input a[i]");
+                readInteger(a[i]);
+            }
+            for (i=0,i<n,i+1)
+            {
+                print("Input b[i]");
+                readInteger(b[i]);
+            }
+            swap(a,b,n);
+            print("Array a and b after swapping:");
+            for (i=0,i<n,i+1)
+            {
+                print(a[i]);
+            }
+            for (i=0,i<n,i+1)
+            {
+                print(b[i]);
+            }
+        }

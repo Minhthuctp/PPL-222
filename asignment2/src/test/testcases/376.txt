@@ -1,0 +1,6 @@
+
+            foo: function auto() {
+                for (i = 1.e1, i<=3, i+1)
+                    break;
+            }           
+        

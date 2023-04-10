@@ -1,0 +1,6 @@
+
+            foo : function integer() {
+                d = inc(3) + 3;
+                h = d + 2 + -2 + -3;
+            }       
+        

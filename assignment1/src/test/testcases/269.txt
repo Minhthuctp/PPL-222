@@ -1,0 +1,6 @@
+
+            a : integer = 2;
+            main: function void() {
+                break abc;
+            }  
+        

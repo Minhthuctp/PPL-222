@@ -1,0 +1,6 @@
+
+            foo: function auto() {
+                if (a==b)
+                    print(a);
+            }        
+        

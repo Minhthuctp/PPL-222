@@ -1,0 +1,9 @@
+
+            foo: function float(a : integer, b: float)
+            {
+                if ((a==b) && (c==d))
+                    return true;
+                else
+                    return false;
+            }
+        
