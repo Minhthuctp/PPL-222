@@ -5,18 +5,28 @@ from AST import *
 class CheckerSuite(unittest.TestCase):
     def test_lowercase_identifier(self):
         input = """
-            foo: function boolean(x: integer)
-        {
-            r, s: integer;
-            r = 2;
-            a, b: array [5] of integer;
-            a[0] = s;
-        }
-        main: function void() {
-            r, s: integer;
-            r = 2;
-            a, b: array [5] of integer;
-            a[0] = s;
+            bar: function integer(inherit a: auto)
+            {
+                
+            }
+            foo: function boolean(x: auto) inherit bar
+            {
+                super(2);
+                if (a==2)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            main: function void() {
+                r, s: integer;
+                r = 2;
+                a, b: array [5] of integer;
+                a[0] = bar(2);
         }
         """
         expect = """No entry point"""
