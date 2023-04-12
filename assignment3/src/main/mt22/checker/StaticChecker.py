@@ -32,6 +32,9 @@ def infer(id,typ,env):
 
 class GetEnv(Visitor):
 
+    def __init__(self,ast):
+        self.ast = ast
+
     def visitProgram(self, ast:Program, o):
         o = [{}]
         for x in ast.decls:
@@ -100,7 +103,7 @@ class StaticChecker(Visitor):
 
     def visitProgram(self, ast:Program, o):
         find_main_func = False            
-        o = GetEnv().visit(ast,o)
+        o = GetEnv(ast).visit(ast,o)
         o = [{}] + o
         for x in ast.decls:
             if (isinstance(x,FuncDecl) and (isinstance(x.return_type,VoidType)) and (len(x.params)==0)):
@@ -518,6 +521,9 @@ class StaticChecker(Visitor):
         
         for x in ast.cell:
             typ = self.visit(x,o)
+            if (isinstance(typ,AutoType)):
+                typ = IntegerType()
+                infer(x.name,IntegerType(),o)
             if (not isinstance(typ,IntegerType)):
                 raise TypeMismatchInExpression(ast)
         return arr
