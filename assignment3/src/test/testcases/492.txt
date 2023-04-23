@@ -1,0 +1,23 @@
+main: function void() {
+            i: integer;
+            a: float = 5;
+            for (i = 0, i < 5.2, i*9 + i*i){
+                if (i < 4) {
+                    a = a + i;
+                    continue;
+                }
+                else {
+                    if (a < 50)
+                        break;
+                    {
+                        a = a*i;
+                        b: float = 8.564;
+                        while (b + a){
+                            a = a + 1;
+                            b = false;
+                        }
+                        continue;
+                    }
+                }
+            }
+        }

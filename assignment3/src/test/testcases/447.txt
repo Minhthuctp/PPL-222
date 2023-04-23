@@ -1,0 +1,8 @@
+
+                    a: function integer(c: integer){
+                        
+                    }
+                    main: function void(){
+                        b: integer = a(1,2);
+                    }
+                

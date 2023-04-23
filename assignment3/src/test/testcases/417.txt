@@ -1,0 +1,9 @@
+ 
+                    alo: function float (c: integer){
+                        
+                    }
+                    a: float = alo(7.4) + 5;
+                    main: function void () {
+                        
+                    }
+                

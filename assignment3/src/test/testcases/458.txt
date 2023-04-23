@@ -1,0 +1,16 @@
+
+                    foo: integer = 2;
+                    iden : integer = 5;
+                    main: function void (){
+                        while (foo < -3){
+                            if (iden % 2 == 1) {
+                                iden = iden + 1;
+                            }
+                            else {
+                                iden = iden + 2;
+                            }
+                            foo = foo - 1;
+                        }
+                    }
+                    
+                

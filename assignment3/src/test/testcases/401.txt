@@ -1,10 +1,6 @@
-
-            foo: function integer(a:integer,b:integer){}
-
-main: function void(){
-
-	a: array[2,2] of integer;
-    b: array[2] of integer = a[1];
-    foo(1,2,3);
-    }
-        
+ a: integer = 1;
+                    b: auto = c + 1;
+                    main: function void () {
+                        
+                    }
+                

@@ -1,0 +1,7 @@
+
+                    a: array[5] of integer = {1,2,3,4,5};
+                    c: integer = a[1] + a[22] + a[2.4];
+                    main: function void () {
+                        
+                    }
+                

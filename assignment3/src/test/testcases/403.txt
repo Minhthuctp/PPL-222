@@ -1,0 +1,9 @@
+ main1: function integer () {
+                    }
+                    a: integer = 1;
+                    b: auto = a + 1;
+                    c: auto = a + main1();
+                    main: function void () {
+                        
+                    }
+                    

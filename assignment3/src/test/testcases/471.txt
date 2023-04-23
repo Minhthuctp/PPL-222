@@ -1,0 +1,5 @@
+bar: function boolean() {
+            b : boolean = true;
+            c = b;
+            return c;
+        }

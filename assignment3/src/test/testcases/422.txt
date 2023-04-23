@@ -1,0 +1,15 @@
+ 
+                    a: float = main1(7) + 5;
+                    main1: function float (inherit c: integer){
+                        foo(6.5);
+                    }
+                    foo: function integer(c: float){
+                        
+                    }
+                    main2: function integer () inherit main1 {
+                        c = c + 1;
+                    }
+                    main: function void () {
+                        
+                    }
+                

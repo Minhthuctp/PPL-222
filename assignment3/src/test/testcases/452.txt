@@ -1,0 +1,11 @@
+
+                    main1: function float (){
+                        
+                    }
+                    main1: function integer (c: integer) inherit main1{
+                        
+                    }
+                    main: function void(){
+                        
+                    }
+                

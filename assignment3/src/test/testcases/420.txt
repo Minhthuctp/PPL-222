@@ -1,0 +1,12 @@
+ 
+                    a: float = main1(7) + 5;
+                    main1: function float (c: integer){
+                        foo(6.5);
+                    }
+                    foo: function integer(c: float){
+                        
+                    }
+                    main: function void () {
+                        
+                    }
+                

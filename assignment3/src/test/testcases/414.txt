@@ -1,0 +1,22 @@
+ alo: function float (b: string, c: boolean) {
+                        b = b;
+                        {
+                            a : boolean = true;
+                        }
+                        if (3 < 2){
+                            a: boolean = true;
+                        }
+                        else {
+                            a: boolean = true;
+                        }
+                        for(c = 0, c < 3, c + 1){
+                           c = c + 1; 
+                        }
+                    }
+                    a: boolean = true;
+                    c: auto = !a;
+                    b: auto = !c;
+                    main: function void () {
+                        
+                    }
+                    

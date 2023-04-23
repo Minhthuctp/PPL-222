@@ -1,0 +1,13 @@
+
+                    a: array[5] of integer = {1,2,3,4,5};
+                    c: integer = a[1] + a[22] + a[2];
+                    foo: function integer () {
+                        return 2;
+                    }
+                    boo: function float () {
+                        return 2.0;
+                    }
+                    main: function void(){
+                        
+                    }
+                

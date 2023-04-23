@@ -1,0 +1,12 @@
+
+                    y: function auto (a: integer) {
+                        
+                    }
+                    x: function string (a: string) {
+                        
+                    }
+                    main: function void () {
+                        a: string = x(y(5));
+                        b: integer = y(5);
+                    }
+                

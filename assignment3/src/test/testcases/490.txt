@@ -1,0 +1,7 @@
+main: function void() {
+            i: integer;
+            for (i = 0, i < 5.2, i*9 + i*i){
+                break;
+            }
+            continue;
+        }

@@ -1,0 +1,1 @@
+Type mismatch in Variable Declaration: VarDecl(a, StringType, BinExpr(+, IntegerLit(1), IntegerLit(2)))

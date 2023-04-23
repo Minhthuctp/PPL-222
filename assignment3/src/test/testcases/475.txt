@@ -1,0 +1,2 @@
+foo: function string (inherit a: string, out b: float) {}
+            main: function auto (a: array[2] of integer, b: float) inherit foo {}

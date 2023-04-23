@@ -1,0 +1,20 @@
+
+        check: function void(n: integer)
+        {
+            i: integer;
+            for (i = 0, i < n, i + 1)
+                if (foo(i) == true)
+                    foo(i);
+            return;
+        }
+        main: function void() {
+            n : integer = 1;
+            check(n);
+        }
+        foo: function boolean(x: integer)
+        {
+            if (x%2 == 0)
+                return true;
+            else
+                return 0;
+        }

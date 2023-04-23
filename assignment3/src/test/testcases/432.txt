@@ -1,0 +1,11 @@
+
+                    foo: function auto (a: integer, b: integer){
+                        
+                    }
+                    boo: function void (){
+                        foo(2,3);
+                    }
+                    main: function void () {
+                        
+                    }
+                

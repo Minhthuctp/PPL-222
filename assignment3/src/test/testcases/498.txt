@@ -1,0 +1,7 @@
+a: string = "hello";
+        b: function void() inherit a {
+            preventDefault();
+        }
+        a: function auto() {
+        }
+        

@@ -1,0 +1,9 @@
+ alo: function float () {
+                    }
+                    a: integer = 1;
+                    b: auto = 1.0;
+                    c: auto = b + alo();
+                    main: function void () {
+                        
+                    }
+                    

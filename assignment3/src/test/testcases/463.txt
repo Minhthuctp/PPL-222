@@ -1,0 +1,14 @@
+
+                    foo: function float (a: float){
+                        return a;
+                    }
+                    foo1: function integer(){
+                        foo(2);
+                    }
+                    main: function void (){
+                        
+                    }
+                    c: auto = foo(2);
+                    a: auto = foo1();
+                    b: float = foo1();
+                

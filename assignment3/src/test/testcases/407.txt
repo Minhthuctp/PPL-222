@@ -1,0 +1,10 @@
+ alo: function float (b: string, c: string) {
+                        a = b;
+                    }
+                    a: boolean = true;
+                    c: auto = !a;
+                    b: auto = !c;
+                    main: function void () {
+                        
+                    }
+                    

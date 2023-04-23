@@ -1,0 +1,8 @@
+
+                    y: function string (a: auto) {}
+                    x: function string (a: string) {}
+                    main: function void () {
+                        a: string = y("a");
+                        b: string = y(2);
+                    }
+                

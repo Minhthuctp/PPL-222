@@ -1,0 +1,10 @@
+
+                    foo: function auto (a: integer, b: integer){
+                        
+                    }
+                    b: integer = (foo(1,2) + 1) * (foo(1,2) + 1.0);
+                    main: function void () {
+                        
+                    }
+                    
+                

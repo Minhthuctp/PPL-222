@@ -1,0 +1,8 @@
+
+                    
+                    x: function void (a: auto) {}
+                    main: function void () {
+                        x("a");
+                        x(2);
+                    }
+                

@@ -1,0 +1,15 @@
+bar: function float(inherit x: float, z: integer) {}
+        foo: function boolean(x: integer) inherit bar 
+        {
+            r, s: integer;
+            r = 2;
+            a, b: array [5] of integer;
+            a[0] = s;
+        }
+        main: function void() {
+            r, s: integer;
+            r = 2;
+            a, b: array [5] of integer;
+            s = r * r * myPI;
+            a[0] = s;
+        }

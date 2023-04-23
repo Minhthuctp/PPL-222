@@ -1,0 +1,12 @@
+getDiameter: function float(radius: integer){
+            diameter: float = 2*radius;
+            return diameter;
+            }
+        getCircumference: function float(radius: integer){
+            C: float = 2*3.14*radius;
+            return C;
+            }
+        getArea: function float(radius: integer){
+            S: float = 3.14*radius*radius;
+            return S;
+            }

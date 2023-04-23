@@ -1,0 +1,6 @@
+
+                    b: auto = main();
+                    main: function void(){
+                        
+                    }
+                

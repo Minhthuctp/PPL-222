@@ -1,0 +1,4 @@
+main: function void() {
+            for (i = 0, i < n, i*9 + i*i){
+            }
+        }

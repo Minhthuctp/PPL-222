@@ -1,0 +1,10 @@
+
+                    foo: function void(a: integer){
+                        a: float = 2.0;
+                    }
+                    main: function void (){
+                        
+                    }
+                    foo: integer = 2;
+                    
+                

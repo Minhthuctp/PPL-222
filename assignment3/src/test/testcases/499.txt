@@ -1,0 +1,5 @@
+b: function void() inherit a {
+            preventDefault(2, true);
+        }
+        a: function auto() {
+        }

@@ -1,0 +1,10 @@
+
+                    
+                    foo: function integer(a: float){
+                        return a;
+                    }
+                    main: function void (){
+                        
+                    }
+                    a: auto = foo(2);
+                
