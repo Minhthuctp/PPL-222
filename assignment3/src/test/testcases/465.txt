@@ -1,8 +1,14 @@
 
-                    
-                    x: function void (a: auto) {}
-                    main: function void () {
-                        x("a");
-                        x(2);
-                    }
-                
+            foo: function integer (a: auto, b: auto)
+            {
+            
+            }
+            bar: function auto ()
+            {
+                c: integer;
+                d: float;
+                foo(c,d);
+                e: integer = foo(c,d);
+                f: float = foo(e,f);
+            }
+            

@@ -1,1 +1,1 @@
-Type mismatch in Variable Declaration: VarDecl(a, ArrayType([2], StringType), ArrayLit([]))
+Type mismatch in statement: ReturnStmt(IntegerLit(1))

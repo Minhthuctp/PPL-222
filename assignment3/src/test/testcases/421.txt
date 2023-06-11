@@ -1,12 +1,4 @@
- 
-                    a: float = main1(7) + 5;
-                    main1: function float (inherit c: integer){
-                        boo(6.5);
-                    }
-                    foo: function integer(c: float){
-                        
-                    }
-                    main: function void () {
-                        
-                    }
-                
+
+            bar : function void (a:float) inherit foo{} 
+            foo : function auto (inherit n: float){} 
+            

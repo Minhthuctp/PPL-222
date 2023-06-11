@@ -1,6 +1,5 @@
- a: float = 1 + 2.0;
-                    b: auto = a + 1;
-                    main: function void () {
-                        
-                    }
-                
+foo: function void()
+        {
+            
+        }
+        

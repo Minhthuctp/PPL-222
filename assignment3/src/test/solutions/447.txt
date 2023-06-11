@@ -1,1 +1,1 @@
-Type mismatch in expression: FuncCall(a, [IntegerLit(1), IntegerLit(2)])
+Type mismatch in statement: ForStmt(AssignStmt(Id(b), IntegerLit(1)), Id(a), BinExpr(+, Id(b), IntegerLit(1)), BlockStmt([]))

@@ -1,4 +1,13 @@
 
-                    a: integer = 1;
-                    a: float = 1.0;
+            foo: function integer (a: auto, b: auto)
+            {
+                while ((a == true) && (bar()))
+                {
                 
+                }
+            }
+            bar: function auto ()
+            {
+            
+            }
+            

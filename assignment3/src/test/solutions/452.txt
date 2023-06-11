@@ -1,1 +1,1 @@
-Redeclared Function: main1
+Type mismatch in expression: BinExpr(==, Id(b), StringLit(a))

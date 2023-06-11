@@ -1,1 +1,1 @@
-Type mismatch in statement: WhileStmt(BinExpr(+, Id(b), Id(a)), BlockStmt([AssignStmt(Id(a), BinExpr(+, Id(a), IntegerLit(1))), AssignStmt(Id(b), BooleanLit(False))]))
+Type mismatch in statement: ReturnStmt(BooleanLit(True))

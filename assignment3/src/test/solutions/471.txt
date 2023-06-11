@@ -1,1 +1,1 @@
-Undeclared Identifier: c
+Type mismatch in statement: AssignStmt(Id(c), FloatLit(1.3))

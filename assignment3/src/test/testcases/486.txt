@@ -1,20 +1,34 @@
 
-        check: function void(n: integer)
-        {
-            i: integer;
-            for (i = 0, i < n, i + 1)
-                if (foo(i) == true)
-                    foo(i);
-            return;
-        }
-        main: function void() {
-            n : integer = 1;
-            check(n);
-        }
-        foo: function boolean(x: integer)
-        {
-            if (x%2 == 0)
-                return true;
-            else
-                return 0;
-        }
+        x: integer = foo(1);
+            foo: function auto(inherit x: auto)
+            {
+                if (x==1)
+                    return 1;
+                else
+                    return 2;
+                return 3;
+            }
+
+            bar: function auto (c: auto) inherit foo
+            {
+                super(c);
+                a: array [2] of integer;
+                for (x=1,x<10,x+1)
+                {
+                    return a;
+                    {
+                        return b;
+                    }
+                    if (c==1)
+                    {
+                        return a;
+                    }
+                    else
+                        return d;
+                }
+            }
+
+            main: function void(){
+                x = readInteger() + bar(x);
+            }
+        

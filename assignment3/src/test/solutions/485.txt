@@ -1,1 +1,1 @@
-Type mismatch in expression: StringLit(hello)
+Illegal array literal: ArrayLit([ArrayLit([ArrayLit([IntegerLit(1), IntegerLit(1)]), ArrayLit([FloatLit(1.0), IntegerLit(1)]), ArrayLit([FloatLit(1.9), FloatLit(1.1)])]), ArrayLit([ArrayLit([IntegerLit(1), IntegerLit(1)]), ArrayLit([FloatLit(1.0), IntegerLit(1)]), ArrayLit([FloatLit(1.3), FloatLit(1.1)])])])

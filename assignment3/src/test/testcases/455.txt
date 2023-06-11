@@ -1,9 +1,14 @@
 
-                    foo: function void(a: integer){
-                        a: float = 2.0;
-                    }
-                    main: function void (){
-                        
-                    }
-                    
+            foo: function integer (a: auto, b: auto)
+            {
+                do
+                {
                 
+                }
+                while ((a == true) && (bar()));
+            }
+            bar: function auto ()
+            {
+            
+            }
+            

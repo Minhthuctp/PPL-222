@@ -1,1 +1,1 @@
-Illegal array literal: ArrayLit([ArrayLit([IntegerLit(1), IntegerLit(3), IntegerLit(2)]), ArrayLit([StringLit(a), StringLit(b), StringLit(c)])])
+Redeclared Variable: f

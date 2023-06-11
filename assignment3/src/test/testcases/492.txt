@@ -1,23 +1,21 @@
-main: function void() {
-            i: integer;
-            a: float = 5;
-            for (i = 0, i < 5.2, i*9 + i*i){
-                if (i < 4) {
-                    a = a + i;
-                    continue;
-                }
-                else {
-                    if (a < 50)
-                        break;
-                    {
-                        a = a*i;
-                        b: float = 8.564;
-                        while (b + a){
-                            a = a + 1;
-                            b = false;
-                        }
-                        continue;
-                    }
-                }
+
+            square: function integer(x: integer)
+            {
+                return x*x;
             }
-        }
+
+            map: function void(a: array [10] of integer, n: integer)
+            {
+                i: integer;
+                for (i=1,i<n,i+1)
+                    a[i] = square(a[i]);
+                    printInteger(a[i]);
+            }
+
+            main: function void()
+            {
+                a: array [10] of integer = {1,2,3,4,5,6,7,8,9,10};
+                map(a,10);
+                return true;
+            }
+        

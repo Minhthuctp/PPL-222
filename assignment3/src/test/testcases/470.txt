@@ -1,1 +1,3 @@
-a,b: integer = false, true;
+
+            a: array [2,2] of float = {{1,1},{1,1},{"a","b"}};
+        

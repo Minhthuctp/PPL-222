@@ -1,1 +1,1 @@
-Type mismatch in statement: CallStmt(x, IntegerLit(2))
+Type mismatch in expression: FuncCall(bar, [Id(a), Id(b)])

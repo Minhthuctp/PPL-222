@@ -1,12 +1,18 @@
-getDiameter: function float(radius: integer){
-            diameter: float = 2*radius;
-            return diameter;
+x: integer;
+            foo1: function integer(inherit x: float){}
+
+            foo2: function float(inherit y: float) inherit foo1{
+                super(10);
+                z: float = 10.1;
+                return 1;
             }
-        getCircumference: function float(radius: integer){
-            C: float = 2*3.14*radius;
-            return C;
+            foo3: function float(out z: float) inherit foo2{
+                preventDefault();
+                y: integer = 10;
+                printInteger(1);
+                return 1.123;
             }
-        getArea: function float(radius: integer){
-            S: float = 3.14*radius*radius;
-            return S;
+
+            main: function void(){
+                x: integer = readInteger();
             }

@@ -1,4 +1,33 @@
-main: function void() {
-            for (i = 0, i < n, i*9 + i*i){
+
+            foo: function void (inherit c: auto)
+            {
+                return;
             }
-        }
+
+            bar: function auto (a: integer, b: auto) inherit foo
+            {
+                super(10);
+                a = readInteger();
+                if (b==1)
+                {
+                    printInteger(a);
+                }
+                else
+                {
+                    return a;
+                }
+                return b;
+                for (c=1,c<10,c+1)
+                {
+                    return a;
+                }
+                return 1.0;
+            }
+
+            goo: function integer(a:integer,b:float) inherit bar
+            {
+                super(10,10);
+                return bar(a,a);
+                c = 1.0;
+            }
+        

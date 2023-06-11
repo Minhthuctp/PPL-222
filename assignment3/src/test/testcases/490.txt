@@ -1,7 +1,39 @@
-main: function void() {
-            i: integer;
-            for (i = 0, i < 5.2, i*9 + i*i){
-                break;
+
+            foo: function void (inherit c: auto)
+            {
+                return;
             }
-            continue;
-        }
+
+            bar: function auto (a: integer, b: auto) inherit foo
+            {
+                preventDefault();
+                a = readInteger();
+                if (b==1)
+                {
+                    printInteger(a);
+                }
+                else
+                {
+                    return a;
+                }
+                return b;
+                c = readString();
+                for (a=1,a<10,a+1)
+                {
+                    return a;
+                }
+                return 1.0;
+            }
+
+            goo: function integer(a:integer,b:float) inherit foo
+            {
+                preventDefault();
+                return bar(a,a);
+                return true;
+                while (c==1)
+                {
+                
+                }
+            }
+
+        

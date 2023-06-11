@@ -1,11 +1,9 @@
 
-                    main1: function float (inherit c: integer){
-                        
-                    }
-                    a: function integer (c: integer) inherit main1{
-                        
-                    }
-                    main: function void(){
-                        
-                    }
+            foo: function string (a: auto, b: auto)
+            {
+                for (b = 1, a, b + 1)
+                {
                 
+                }
+            }
+            

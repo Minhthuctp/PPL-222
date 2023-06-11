@@ -1,9 +1,9 @@
 
-                    a: function integer(c: integer){
-                        
-                    }
-                    c: integer = a(1,2);
-                    main: function void(){
-                        b: integer = a(1,2);
-                    }
+            foo: function integer (a: integer, b: auto)
+            {
+                for (b = "a", a, 1)
+                {
                 
+                }
+            }
+            

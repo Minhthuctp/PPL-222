@@ -1,1 +1,1 @@
-Type mismatch in expression: FuncCall(boo, [FloatLit(2.0)])
+Type mismatch in expression: BinExpr(+, Id(b), IntegerLit(1))

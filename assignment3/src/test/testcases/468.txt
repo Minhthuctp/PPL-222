@@ -1,12 +1,3 @@
 
-                    y: function auto (a: integer) {
-                        
-                    }
-                    x: function string (a: string) {
-                        
-                    }
-                    main: function void () {
-                        a: string = x(y(5));
-                        b: integer = y(5);
-                    }
-                
+            a: array [2,2] of float = {{1,1},{1,1.5}};
+        

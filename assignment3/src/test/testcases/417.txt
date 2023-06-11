@@ -1,9 +1,8 @@
- 
-                    alo: function float (c: integer){
-                        
-                    }
-                    a: float = alo(7.4) + 5;
-                    main: function void () {
-                        
-                    }
-                
+
+            a: integer;
+            a: function integer(b: integer, c:integer){}
+            main: function void()
+            {
+            
+            }
+            

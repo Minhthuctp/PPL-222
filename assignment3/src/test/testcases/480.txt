@@ -1,18 +1,19 @@
-gcdRecursion: function integer(p: integer, q: integer){
-            if (p > q)
-                return gcdRecursion(p - q, q);
-            else
-                if (p < q)
-                    return gcdRecursion(p, q - p);
-                else
-                    return p;
+
+            foo: function auto (a: integer, inherit b: auto)
+            {
+                return a + 1;
             }
-        gcdIteration: function integer(p: integer, q: integer){
-            while (p != q) {
-                if (p > q)
-                    p = p - q;
-                else
-                    q = q - p;
+
+            bar: function boolean (c: integer, d:integer) inherit foo
+            {
+                super(c,d);
+                while (b<10)
+                {
+                    c = c - d;
+                    d = d/10;
                 }
-            return p;
+                printInteger(c);
+                c = readInteger();
             }
+
+            

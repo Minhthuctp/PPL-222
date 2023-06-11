@@ -1,8 +1,10 @@
 
-                    a: function integer(c: integer){
-                        
-                    }
-                    main: function void(){
-                        b: integer = a(1,2);
-                    }
+            foo: function integer (a: boolean, b: auto)
+            {
+                b = a;
+                for (b = 1, a, b+1)
+                {
                 
+                }
+            }
+            

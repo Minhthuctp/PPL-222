@@ -1,13 +1,5 @@
- alo: function float (b: string, b: string) {
-                        b = b;
-                        {
-                            a : boolean = true;
-                        }
-                    }
-                    a: boolean = true;
-                    c: auto = !a;
-                    b: auto = !c;
-                    main: function void () {
-                        
-                    }
-                    
+
+            a: float = 2;
+            b: integer = 2;
+            b: string;
+            

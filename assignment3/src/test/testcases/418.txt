@@ -1,9 +1,8 @@
- 
-                    a: integer = main1(7) + 5;
-                    main1: function integer (c: integer){
-                        
-                    }
-                    main: function void () {
-                        
-                    }
-                
+
+            a: integer;
+            b: function integer(c: integer, d:integer) inherit a{}
+            main: function void()
+            {
+            
+            }
+            

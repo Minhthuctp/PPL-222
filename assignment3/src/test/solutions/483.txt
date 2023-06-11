@@ -1,1 +1,1 @@
-Invalid statement in function: foo
+Type mismatch in Variable Declaration: VarDecl(b, ArrayType([2], FloatType), FuncCall(bar, [IntegerLit(1)]))

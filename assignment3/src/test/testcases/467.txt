@@ -1,8 +1,3 @@
 
-                    y: function string (a: auto) {}
-                    x: function string (a: string) {}
-                    main: function void () {
-                        a: string = y("a");
-                        b: string = y(2);
-                    }
-                
+            a: array [2,2] of float = {{1,1},{1.1,1.2}};
+        

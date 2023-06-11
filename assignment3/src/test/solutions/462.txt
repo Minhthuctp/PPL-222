@@ -1,1 +1,1 @@
-Type mismatch in statement: ReturnStmt(Id(a))
+Type mismatch in statement: CallStmt(foo, StringLit(a), StringLit(b))

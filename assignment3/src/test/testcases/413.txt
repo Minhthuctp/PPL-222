@@ -1,20 +1,5 @@
- alo: function float (b: string, c: integer) {
-                        b = b;
-                        {
-                            a : boolean = true;
-                        }
-                        if (3 + 2){
-                            a: boolean = true;
-                        }
-                        else {
-                            a: boolean = true;
-                        }
-                        
-                    }
-                    a: boolean = true;
-                    c: auto = !a;
-                    b: auto = !c;
-                    main: function void () {
-                        
-                    }
-                    
+
+            a: float = 2;
+            b: integer = 2;
+            c: auto = {a,b,"d"};
+            

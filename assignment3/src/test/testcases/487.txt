@@ -1,17 +1,33 @@
-x: integer = 65;
-        fact: function integer (n: integer) {
-            if (n == 0) return 1;
-            else return n * fact(n - 1);
-        }
-        inc: function void(inherit out n: integer, inherit delta: integer) {
-            n = n + delta;
-        }
-        inc1: function integer(out n: integer, double: integer) inherit inc {
-            super(m, double);
-            m = m + double;
-        }
-        main: function void() {
-            delta: integer = fact(3);
-            inc(x, delta);
-            a : array [0] of string;
-        }
+
+            foo: function void (inherit c: auto)
+            {
+                return;
+            }
+
+            bar: function auto (a: integer, b: auto)
+            {
+                super(10);
+                a = readInteger();
+                if (b==1)
+                {
+                    printInteger(a);
+                }
+                else
+                {
+                    return a;
+                }
+                return b;
+                for (c=1,c<10,c+1)
+                {
+                    return a;
+                }
+                return 1.0;
+            }
+
+            goo: function integer(a:integer,b:float) inherit bar
+            {
+                super(10,10);
+                return bar(a,a);
+                c = 1.0;
+            }
+        

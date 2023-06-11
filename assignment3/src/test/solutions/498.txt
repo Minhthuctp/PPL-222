@@ -1,1 +1,1 @@
-Redeclared Function: a
+Type mismatch in expression: FuncCall(readInteger, [Id(n)])

@@ -1,1 +1,19 @@
-a: array [6] of integer = {1, 2.5, 2, 4, 10, 159}
+
+            foo: function integer(inherit a: auto)
+            {
+                return a;
+            }
+
+            bar: function auto(c: integer) inherit foo
+            {
+                super(c);
+                d: string = "a"::"b";
+                printString("Hello World!!!");
+                return d;
+                f: auto = {1,2,3,4};
+                for (c=1,c<10,c+1)
+                    printInteger(f[c]);
+                return false;
+            }
+
+        

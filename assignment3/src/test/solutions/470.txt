@@ -1,1 +1,1 @@
-Type mismatch in Variable Declaration: VarDecl(a, IntegerType, BooleanLit(False))
+Illegal array literal: ArrayLit([ArrayLit([IntegerLit(1), IntegerLit(1)]), ArrayLit([IntegerLit(1), IntegerLit(1)]), ArrayLit([StringLit(a), StringLit(b)])])

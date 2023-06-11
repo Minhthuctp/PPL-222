@@ -1,10 +1,17 @@
 
-                    foo: integer = 2;
-                    foo: function void(a: integer){
-                        a: float = 2.0;
-                    }
-                    main: function void (){
-                        
-                    }
-                    
-                
+            foo: function integer (a: auto, b: auto)
+            {
+                for (a=1,b,a+1)
+                {
+                    c: integer = 2;
+                    for (c=2,c<2,c+1)
+                    {
+                        continue;
+                    }   
+                }
+            }
+            bar: function auto ()
+            {
+            
+            }
+            

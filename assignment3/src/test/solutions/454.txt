@@ -1,1 +1,1 @@
-Redeclared Variable: a
+Type mismatch in expression: BinExpr(==, Id(b), StringLit(a))

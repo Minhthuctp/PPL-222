@@ -1,16 +1,6 @@
 
-                    main2: function integer () inherit main1 {
-                        preventDefault();
-                        d = d + 1;
-                    }
-                    a: float = main1(7) + 5;
-                    main1: function float (inherit c: integer, d: integer){
-                        foo(6.5);
-                    }
-                    foo: function integer(c: float){
-                        
-                    }
-                    main: function void () {
-                        
-                    }
-                
+            bar : function void (a:float) inherit foo{
+                super();
+            } 
+            foo : function auto (){} 
+            

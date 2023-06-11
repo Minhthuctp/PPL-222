@@ -1,1 +1,25 @@
-a: array [2,3] of string = { {"a", "b"}, {"c", "d", "e"}}
+
+        a: array[10] of integer;
+        find_max: function integer(n: integer)
+        {
+            max : integer = a[0];
+            i: integer = 0;
+            for (i=1,i<n,i+1)
+                if (max<a[i])
+                    max = a[i];
+            return max;
+        }
+        main: function void() {
+            n: integer;
+            printString("Input n:");
+            n = readInteger();
+            i: integer = 0;
+            for (i = 0,i < n,i+1)
+            {
+                printString("Input a[i]:");
+                a[i] = readInteger();
+            }
+            printString("The max number in arr is");
+            printInteger(find_max());
+        }
+        

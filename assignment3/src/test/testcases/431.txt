@@ -1,10 +1,15 @@
 
-                    foo: function auto (a: integer, b: integer){
-                        
-                    }
-                    b: integer = (foo(1,2) + 1) * (foo(1,2) + 1.0);
-                    main: function void () {
-                        
-                    }
-                    
-                
+            bar: integer;
+            foo: function integer (a: integer, b: auto) inherit bar 
+            {
+                preventDefault();
+                if (a==1)
+                {
+                    b: integer;
+                }
+            }
+            bar: function integer(inherit c: integer)
+            {
+            
+            }
+            

@@ -1,1 +1,15 @@
-a,b,c,d,e: string = 1+2, 3, 4, 5, 7+8;
+
+            foo: function void (a: integer, b: auto) inherit bar 
+            {
+                super(2);
+                b = "abc";
+                return;
+                if (a==1)
+                    return 2;
+            }
+
+            bar: function void (inherit c: auto)
+            {
+                foo(1,"a");
+            }
+            

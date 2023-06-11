@@ -1,8 +1,3 @@
 
-                    y: function auto (a: string) {}
-                    x: function string (a: string) {}
-                    main: function void () {
-                        x(y("abc"));
-                        a: integer = y("a");
-                    }
-                
+            a: array [2] of integer = {2,1.0};
+        

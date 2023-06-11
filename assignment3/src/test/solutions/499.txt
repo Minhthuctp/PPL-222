@@ -1,1 +1,1 @@
-Type mismatch in expression: IntegerLit(2)
+No entry point

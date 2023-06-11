@@ -1,2 +1,15 @@
-foo: function string (inherit a: string, out b: float) {}
-            main: function auto (a: array[2] of integer, b: float) inherit foo {}
+
+            a: integer = foo(1,2);
+            foo: function integer(inherit a:auto,b:auto) inherit bar
+            {
+                c: float = a;
+                return a+b;
+                b = {1,2,3};
+            }
+
+            bar: function void() inherit foo 
+            {
+                preventDefault();
+                return a;
+            }
+            

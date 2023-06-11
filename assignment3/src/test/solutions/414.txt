@@ -1,1 +1,1 @@
-Type mismatch in statement: ForStmt(AssignStmt(Id(c), IntegerLit(0)), BinExpr(<, Id(c), IntegerLit(3)), BinExpr(+, Id(c), IntegerLit(1)), BlockStmt([AssignStmt(Id(c), BinExpr(+, Id(c), IntegerLit(1)))]))
+Illegal array literal: ArrayLit([ArrayLit([Id(a), Id(b)]), ArrayLit([Id(a), Id(b)])])

@@ -1,8 +1,9 @@
 
-                    a: array[5] of integer = {1,2,3,4,5};
-                    b: integer;
-                    main: function void(){
-                        b: array[5] of integer = {1,2,3,4,5};
-                        c: integer = b[1];
-                    }
+            foo: function integer (a: boolean, b: auto)
+            {
+                for (b = 1, a, b + 1)
+                {
                 
+                }
+            }
+            

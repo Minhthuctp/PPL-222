@@ -1,1 +1,1 @@
-Invalid Parameter: x
+Type mismatch in expression: BinExpr(+, FuncCall(readInteger, []), FuncCall(bar, [Id(x)]))

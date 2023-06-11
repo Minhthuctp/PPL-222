@@ -1,5 +1,15 @@
-b: function void() inherit a {
-            preventDefault(2, true);
+
+        
+        foo: function integer(inherit a: auto,b: integer)
+        {
+            return bar(a,b);
         }
-        a: function auto() {
+
+        bar: function auto(c: auto,d: integer) inherit foo
+        {
+            preventDefault();
+            return c;
         }
+
+        f: float = bar(1,2);
+        

@@ -1,1 +1,19 @@
-main: function boolean (n: auto, b: integer, a: float) inherit foo {}
+
+            a: integer = foo(1,2);
+            foo: function integer(a:auto,b:auto) inherit bar
+            {
+                c: float = a;
+                return a+b;
+                for (a=1,a<2,a+1)
+                {
+                    return b;
+                    return false;
+                }
+                return "1" + "2";
+            }
+
+            bar: function void() 
+            {
+            
+            }
+            

@@ -1,10 +1,6 @@
 
-                    foo: function auto (a: integer, b: integer){
-                        
-                    }
-                    a: float = foo(1,2);
-                    c: float = a + 2;
-                    main: function void () {
-                        
-                    }
-                
+            bar : function void (a:float) inherit foo{
+                preventDefault(a);
+            } 
+            foo : function auto (){} 
+            

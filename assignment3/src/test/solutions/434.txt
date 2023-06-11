@@ -1,1 +1,1 @@
-No entry point
+Invalid statement in function: foo

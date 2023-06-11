@@ -1,15 +1,23 @@
-bar: function float(x: string) {}
-        foo: function boolean(x: integer) inherit bar 
-        {
-            r, s: integer;
-            r = 2;
-            a, b: array [5] of integer;
-            a[0] = s;
-        }
-        main: function void() {
-            r, s: integer;
-            r = 2;
-            a, b: array [5] of integer;
-            s = r * r * myPI;
-            a[0] = s;
-        }
+x: integer = foo1(1);
+            foo1: function auto(inherit x: auto){}
+
+            foo2: function float(inherit y: float) inherit foo1{
+                super(10);
+                z: float = x;
+                for (x=1,x<10, x + 1)
+                {
+                    break;
+                }
+                return 1;
+            }
+
+            bar: function auto (c: auto) inherit foo1
+            {
+                super(c);
+                return {1,2,3};
+            }
+
+            main: function void(){
+                x: integer = readInteger();
+                b: array [2] of float = bar(1);
+            }

@@ -1,4 +1,14 @@
-Program([
-	VarDecl(a, IntegerType, IntegerLit(5))
-	VarDecl(c, AutoType)
-])
+
+            foo: function auto (a: integer, inherit b: auto)
+            {
+                return bar(a,b);
+            }
+
+            bar: function boolean (c: integer, d:integer) inherit foo
+            {
+                preventDefault();
+                b = false;
+                return true;
+            }
+
+            

@@ -1,1 +1,1 @@
-Must in loop: ContinueStmt()
+Type mismatch in expression: BinExpr(==, Id(c), IntegerLit(1))

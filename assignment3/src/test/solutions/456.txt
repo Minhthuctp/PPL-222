@@ -1,1 +1,1 @@
-Redeclared Variable: a
+No entry point

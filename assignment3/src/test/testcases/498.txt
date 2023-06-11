@@ -1,7 +1,19 @@
-a: string = "hello";
-        b: function void() inherit a {
-            preventDefault();
+
+        fibonacci: function integer(n: integer)
+        {
+            f: array[100] of integer;
+            f[0] = 1;
+            f[1] = 1;
+            i : integer;
+            for (i=2,i<n,i+1)
+                f[i] = f[i-1] + f[i-2];
+            return f[n-1];
         }
-        a: function auto() {
+        main: function void() {
+            n : integer;
+            printString("Input n:");
+            n = readInteger(n);
+            print("The nth fibonacci number is");
+            printBoolean(fibonacci(n));
         }
         

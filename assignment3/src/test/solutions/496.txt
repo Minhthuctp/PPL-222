@@ -1,1 +1,1 @@
-Type mismatch in Variable Declaration: VarDecl(a, ArrayType([2, 3], StringType), ArrayLit([ArrayLit([IntegerLit(1), IntegerLit(3), IntegerLit(2)]), ArrayLit([IntegerLit(6), IntegerLit(5), IntegerLit(4)])]))
+Type mismatch in statement: CallStmt(printInteger, FuncCall(sum, [Id(n), Id(m), Id(x), Id(y)]))

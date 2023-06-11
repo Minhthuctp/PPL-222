@@ -1,1 +1,1 @@
-Undeclared Identifier: a
+Type mismatch in Variable Declaration: VarDecl(e, BooleanType, IntegerLit(2))

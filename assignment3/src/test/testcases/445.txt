@@ -1,8 +1,8 @@
 
-                    a: array[5] of integer = {1,2,3,4,5};
-                    b: integer;
-                    main: function void(){
-                        b: array[5] of integer = {1,2,3,4,5};
-                        c: integer = b[1];
-                    }
-                
+            foo: function integer (a: auto, b: auto)
+            {
+                c: integer = a;
+                b = a + 1.0;
+                printInteger(a);
+            }
+            

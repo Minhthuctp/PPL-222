@@ -1,1 +1,1 @@
-Illegal array literal: ArrayLit([ArrayLit([StringLit(a), StringLit(b)]), ArrayLit([StringLit(c), StringLit(d), StringLit(e)])])
+Type mismatch in expression: FuncCall(find_max, [])

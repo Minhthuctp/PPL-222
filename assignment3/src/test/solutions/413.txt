@@ -1,1 +1,1 @@
-Type mismatch in statement: IfStmt(BinExpr(+, IntegerLit(3), IntegerLit(2)), BlockStmt([VarDecl(a, BooleanType, BooleanLit(True))]), BlockStmt([VarDecl(a, BooleanType, BooleanLit(True))]))
+Illegal array literal: ArrayLit([Id(a), Id(b), StringLit(d)])

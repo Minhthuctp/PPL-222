@@ -1,6 +1,19 @@
- y: function void (a: string) {}
-                    x: function void (a: auto) {}
-                    main: function void() {
-                        x("a");
-                        x(2);
-                    }
+
+            foo: function auto (a: integer, b: auto)
+            {
+                if (a<1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                return bar(a,b);
+            }
+
+            bar: function void (b: integer, c:integer)
+            {
+            
+            }
+            

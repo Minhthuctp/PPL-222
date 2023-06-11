@@ -1,1 +1,1 @@
-Type mismatch in expression: FuncCall(main, [])
+Type mismatch in expression: BinExpr(::, StringLit(1), Id(a))

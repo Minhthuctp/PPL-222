@@ -1,16 +1,3 @@
 
-                    y: function auto (a: auto) {
-                        
-                    }
-                    x: function string (a: string) {
-                        
-                    }
-                    z: function integer (a: integer) {
-                        
-                    }
-                    main: function void () {
-                        x(y(5));
-                        a: string = y(6);
-                        z(y(6));
-                    }
-                
+            a: array [2,2] of float = {{1,1},{1,1}};
+        

@@ -1,7 +1,6 @@
 
-                    a: array[5] of integer = {1,2,3,4,5};
-                    b: integer;
-                    main: function void(){
-                        c: integer = a[1];
-                    }
-                
+            foo: function integer (a: string, b: auto)
+            {
+                b = a + "1";
+            }
+            

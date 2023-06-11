@@ -1,1 +1,1 @@
-Redeclared Variable: a
+Type mismatch in statement: AssignStmt(Id(b), ArrayLit([IntegerLit(1), IntegerLit(2), IntegerLit(3)]))

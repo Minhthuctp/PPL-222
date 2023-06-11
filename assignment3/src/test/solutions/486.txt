@@ -1,1 +1,1 @@
-Type mismatch in statement: ReturnStmt(IntegerLit(0))
+Undeclared Identifier: b

@@ -1,10 +1,14 @@
 
-                    y: function void (a: string) {}
-                    x: function void (a: auto) {
-                        y(a);
-                        b: string = a :: "Hello";
-                    }
-                    main: function void () {
-                        x(5);
-                    }
+            foo: function integer (a: auto, b: auto)
+            {
+            
+            }
+            bar: function auto ()
+            {
+                foo(1.1,1);
+                foo(1,2);
+                foo(bar(),bar());
+                c: integer = bar();
                 
+            }
+            

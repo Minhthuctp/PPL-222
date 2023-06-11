@@ -1,10 +1,16 @@
 
-                    a: array[5] of integer = {1,2,3,4,5};
-                    c: integer = a[1] + a[22] + a[2];
-                    foo: function integer () {
-                        return 2;
-                    }
-                    main: function void(){
-                        
-                    }
+            foo: function integer (a: boolean, b: auto)
+            {
+                if (a==1)
+                {
                 
+                }
+                else
+                {
+                    if (a<2.0)
+                    {
+                    
+                    }
+                }
+            }
+            

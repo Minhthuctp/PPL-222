@@ -1,2 +1,15 @@
-a : integer = 3;
-            b,c : float = a + 1,5;
+
+            foo: function void (a: integer, b: auto) inherit bar 
+            {
+                super(2);
+                b = "abc";
+                bar(2);
+                return;
+                return 1+2;
+            }
+
+            bar: function void (inherit c: auto)
+            {
+                foo(1,"a");
+            }
+            
