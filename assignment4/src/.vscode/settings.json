@@ -1,0 +1,10 @@
+{
+  "python.analysis.extraPaths": [
+    "./main/mt22/utils",
+    "./main/mt22/parser",
+    "./main/mt22/astgen",
+    "./main/mt22/checker",
+    "./main/mt22/codegen",
+    "./test"
+  ]
+}

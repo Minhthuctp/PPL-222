@@ -1,0 +1,6 @@
+
+        x: integer = 12_11_11;
+        main: function void() {
+            printInteger(x);
+        }
+        

@@ -1,0 +1,8 @@
+
+        main: function void() {
+            i, j: integer = 1, 2;
+            for (j = 1, j < 5, j+1) {
+                printInteger(i+j);
+            }
+        }
+        

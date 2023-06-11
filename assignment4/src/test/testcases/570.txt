@@ -1,0 +1,15 @@
+
+            bar: function void(inherit a: boolean)
+        {
+            return;
+        }
+        foo : function void() inherit bar
+        {
+            super(true);
+            printBoolean(a);
+            return;
+        }
+        main : function void () {
+            foo();
+        }
+                

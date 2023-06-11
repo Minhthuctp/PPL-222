@@ -1,0 +1,6 @@
+
+        main : function void () {
+            f : array [5] of boolean = {true, false, true, false, true};
+            printBoolean(f[0]);
+        }
+            

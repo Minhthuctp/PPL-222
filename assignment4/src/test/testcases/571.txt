@@ -1,0 +1,15 @@
+
+        foo: function integer (inherit a: integer, inherit b: integer)
+        {
+            while (a!=0)
+                a = a - 1;
+            do {
+                a = b + 1;
+            }
+            while (a <= b);
+            return a;
+        }
+        main: function void() {
+            printInteger(foo(5, 10));
+        }
+            

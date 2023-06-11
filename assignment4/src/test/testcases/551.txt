@@ -1,0 +1,15 @@
+
+        main: function void() {
+            i: integer = 0;
+            do{
+                j : integer = 0;
+                while (j < 2) {
+                    if (i + j >= 0) 
+                        break;
+                    j = j + 1;
+                }
+                printInteger(i);
+                i = i + 1;
+            }while(i < 10);
+        }
+            

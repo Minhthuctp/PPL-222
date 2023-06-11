@@ -1,0 +1,15 @@
+
+        bar: function void(inherit a: string)
+        {
+            return;
+        }
+        foo : function void() inherit bar
+        {
+            super("Hello");
+            printString(a);
+            return;
+        }
+        main : function void () {
+            foo();
+        }
+            

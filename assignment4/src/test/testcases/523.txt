@@ -1,0 +1,6 @@
+
+        main: function void() {
+            printBoolean(!(false && false));
+            printBoolean(!true);
+        }
+        

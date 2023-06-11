@@ -1,0 +1,5 @@
+
+        main: function void() {
+            writeFloat(10_0 + 20_0);
+        }
+        

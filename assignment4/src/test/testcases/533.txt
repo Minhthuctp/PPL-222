@@ -1,0 +1,9 @@
+
+        main: function void() {
+            if (10 + 20 < 40) {
+                printBoolean(false);
+            } else {
+                printBoolean(true);
+            }
+        }
+        

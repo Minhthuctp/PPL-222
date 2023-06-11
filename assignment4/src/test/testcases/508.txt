@@ -1,0 +1,6 @@
+
+        x: string = "PPL";
+        main: function void() {
+            printString(x);
+        }
+        

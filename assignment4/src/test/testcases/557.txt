@@ -1,0 +1,19 @@
+
+        foo: function integer(n: integer, d: integer) {
+            i,j : integer;
+            n = n + d;
+            for (i = 1, i < n, i+1) {
+                for (j = 1, j < n, j+1) {
+                    if (i + j >= 2) {
+                        return i + j;
+                    } else {
+                        printInteger(i-j);
+                    }
+                }
+            }
+            return 0;
+        }
+        main: function void() {
+            writeFloat(foo(2, 2));
+        }
+        

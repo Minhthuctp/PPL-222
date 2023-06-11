@@ -1,0 +1,7 @@
+
+        main: function void() {
+            arr : array [3] of string = {"Hello", "World", "!"};
+            arr[0] = (arr[0]::arr[1])::arr[2];
+            printString(arr[0]);
+        }
+        

@@ -1,0 +1,13 @@
+
+        i: integer = 3;
+        main: function void() {
+            x: array[5, 5] of integer;
+            x[1,0] = 1;
+            if (i % 2 == 0) {
+                x[i, 0] = i;
+            } else {
+                x[0, i] = i + 1;
+            }
+            printInteger(x[i, 0]);
+        }
+        

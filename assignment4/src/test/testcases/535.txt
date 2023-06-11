@@ -1,0 +1,10 @@
+
+        main: function void() {
+            if (!(true && false)) {
+                printBoolean(false);
+            } else {
+                printBoolean(true);
+            }
+            printBoolean(true);
+        }
+        

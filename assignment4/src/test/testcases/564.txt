@@ -1,0 +1,16 @@
+
+        checkUnique: function boolean(arr: array [5] of integer)
+        {
+            i, j : integer;
+            check : boolean = true;
+            for (i = 0, i < 5, i+1)
+                for (j = i+1 , j < 5, j+1)
+                    if (arr[i] == arr[j])
+                        check = false;
+            return check;
+        }
+        main: function void() {
+            arr: array [5] of integer = {1, 2, 3, 2, 5};
+            printBoolean(checkUnique(arr));
+        }
+            

@@ -1,0 +1,7 @@
+
+        x, y: float = 1, 10.5;
+        main: function void() {
+            writeFloat(x);
+            writeFloat(y);
+        }
+        

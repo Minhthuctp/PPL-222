@@ -1,0 +1,6 @@
+
+        main: function void() {
+            printInteger(-100);
+            printInteger(-100 + 200);
+        }
+        

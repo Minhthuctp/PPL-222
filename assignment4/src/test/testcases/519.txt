@@ -1,0 +1,6 @@
+
+        main: function void() {
+            printString(("new"::"day")::"goodmorning");
+            printString(("new"::"day")::("good"::"morning"));
+        }
+        

@@ -1,0 +1,14 @@
+
+        main: function void() {
+            i: integer = 0;
+            while (i < 20) {
+                if (i == 10) {
+                    printInteger(i);
+                    i = 100;
+                    break;
+                }
+                i = i + 1;
+            }
+            printInteger(i);
+        }
+        

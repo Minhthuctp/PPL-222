@@ -1,0 +1,9 @@
+
+        temp: boolean;
+        main: function void() {
+            temp = false;
+            printBoolean(temp);
+            temp = true;
+            printBoolean(temp);
+        }
+        

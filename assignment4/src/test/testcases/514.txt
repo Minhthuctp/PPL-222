@@ -1,0 +1,8 @@
+
+        main: function void() {
+            printInteger(10 - 5);
+            writeFloat(10 - 5);
+            printInteger(50 - 30);
+            writeFloat(50.0 - 30.0);
+        }
+        

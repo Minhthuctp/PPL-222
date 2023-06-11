@@ -1,0 +1,14 @@
+
+        i,j : integer;
+        main: function void() {
+            for (i = 1, i < 5, i+1) {
+                for (j = 1, j < 5, j+1) {
+                    if (i + j >= 2) {
+                        printInteger(i+j);
+                    } else {
+                        printInteger(i-j);
+                    }
+                }
+            }
+        }
+        

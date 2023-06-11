@@ -1,0 +1,14 @@
+
+        checkValid : boolean = true;
+        foo: function void (n: integer)
+        {
+            if (n % 2 == 0)
+                checkValid = true;
+            else
+                checkValid = false;
+        }
+        main: function void() {
+            foo(20);
+            printBoolean(checkValid);
+        }
+            

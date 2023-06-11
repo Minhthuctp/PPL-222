@@ -1,0 +1,5 @@
+
+        main: function void() {
+            printBoolean((5.0 > 3) || (1.0 < 2));
+        }
+        

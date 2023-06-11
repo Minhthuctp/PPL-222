@@ -1,0 +1,12 @@
+
+        checkValid: function boolean (n: integer) {
+            if (n % 2 == 0)
+                return true;
+            else
+                return false;
+        }
+        main: function void() {
+            res: boolean = checkValid(3);
+            printBoolean(res);
+        }
+            

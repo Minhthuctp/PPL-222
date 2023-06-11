@@ -1,0 +1,18 @@
+
+        foo: function integer (inherit a: integer, inherit b: integer)
+        {
+            while (a!=0)
+                a = a - 1;
+            do {
+                a = b + 1;
+            }
+            while (a <= b);
+            return a;
+        }
+        main: function void() {
+            a: array [2] of integer;
+            a[0] = foo(1,2);
+            a[1] = foo(2,3);
+            printInteger(a[0] + a[1]);
+        }
+            
